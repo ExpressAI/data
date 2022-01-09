@@ -121,6 +121,6 @@ class AdvMtl(datasets.GeneratorBasedBuilder):
                 row = row.decode("utf-8", "ignore")
                 datas = row.split("\t")
                 yield id_, {
-                    "sentence": datas[1],
+                    "text": datas[1],
                     "label": int(datas[0])
                 }
