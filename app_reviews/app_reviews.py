@@ -48,9 +48,9 @@ class AppReviews(datasets.GeneratorBasedBuilder):
             features=datasets.Features(
                 {
                     "package_name": datasets.Value("string"),
-                    "review": datasets.Value("string"),
+                    "text": datasets.Value("string"),
                     "date": datasets.Value("string"),
-                    "star": datasets.Value("int8"),
+                    "label": datasets.Value("int8"),
                 }
             ),
             homepage="https://giograno.me/assets/pdf/workshop/wama17.pdf",
