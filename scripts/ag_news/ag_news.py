@@ -1,26 +1,13 @@
 # coding=utf-8
-# Copyright 2020 The TensorFlow Datasets Authors and the HuggingFace Datasets Authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
-# Lint as: python3
-"""AG News topic classification dataset."""
+
+"""Dataset config script for ag_news （this code is originally from huggingface, them modified by datalab）"""
 
 
 import csv
 
-import datasets
-from datasets.tasks import TextClassification
+import datalabs
+from datalabs.tasks import TextClassification
 
 
 _DESCRIPTION = """\
@@ -53,16 +40,16 @@ _TRAIN_DOWNLOAD_URL = "https://raw.githubusercontent.com/mhjabreel/CharCnn_Keras
 _TEST_DOWNLOAD_URL = "https://raw.githubusercontent.com/mhjabreel/CharCnn_Keras/master/data/ag_news_csv/test.csv"
 
 
-class AGNews(datasets.GeneratorBasedBuilder):
-    """AG News topic classification dataset."""
+class AGNews(datalabs.GeneratorBasedBuilder):
+
 
     def _info(self):
-        return datasets.DatasetInfo(
+        return datalabs.DatasetInfo(
             description=_DESCRIPTION,
-            features=datasets.Features(
+            features=datalabs.Features(
                 {
-                    "text": datasets.Value("string"),
-                    "label": datasets.features.ClassLabel(names=["World", "Sports", "Business", "Sci/Tech"]),
+                    "text": datalabs.Value("string"),
+                    "label": datalabs.features.ClassLabel(names=["World", "Sports", "Business", "Science and Technology"]),
                 }
             ),
             homepage="http://groups.di.unipi.it/~gulli/AG_corpus_of_news_articles.html",
@@ -72,23 +59,29 @@ class AGNews(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager):
         train_path = dl_manager.download_and_extract(_TRAIN_DOWNLOAD_URL)
+        print(f"train_path: \t{train_path}")
         test_path = dl_manager.download_and_extract(_TEST_DOWNLOAD_URL)
         return [
-            datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": train_path}),
-            datasets.SplitGenerator(name=datasets.Split.TEST, gen_kwargs={"filepath": test_path}),
+            datalabs.SplitGenerator(name=datalabs.Split.TRAIN, gen_kwargs={"filepath": train_path}),
+            datalabs.SplitGenerator(name=datalabs.Split.TEST, gen_kwargs={"filepath": test_path}),
         ]
 
     def _generate_examples(self, filepath):
         """Generate AG News examples."""
+
+        # map the label into textual string
+        textualize_label = {"1":"World",
+                                 "2":"Sports",
+                                 "3":"Business",
+                                 "4":"Science and Technology"}
+
+
         with open(filepath, encoding="utf-8") as csv_file:
             csv_reader = csv.reader(
-                csv_file, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True
-            )
+                csv_file, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # using this for tsv: csv_reader = csv.reader(csv_file, delimiter='\t')
             for id_, row in enumerate(csv_reader):
                 label, title, description = row
-                # Original labels are [1, 2, 3, 4] ->
-                #                   ['World', 'Sports', 'Business', 'Sci/Tech']
-                # Re-map to [0, 1, 2, 3].
-                label = int(label) - 1
+                label = textualize_label[label]
                 text = " ".join((title, description))
                 yield id_, {"text": text, "label": label}
