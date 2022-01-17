@@ -51,7 +51,7 @@ _TEST_DOWNLOAD_URL = "https://raw.githubusercontent.com/mhjabreel/CharCnn_Keras/
 def get_operations(module_path:str):
     all_operations = {}
     #module = importlib.import_module(module_path)
-    module = featurize
+    module = operation
 
     target_class = None
     # print(module)
