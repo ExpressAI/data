@@ -54,7 +54,7 @@ def get_operations(module_path:str):
     module = wikipedia_ops
 
     target_class = None
-    # print(module)
+    print(module)
     for name, obj in module.__dict__.items():
         if isinstance(obj, type) and issubclass(obj, Featurizing):
             #and "_data_type" in obj.__dict__.items():
