@@ -92,7 +92,7 @@ class Wikipedia(StructuredTextData):
 
     def __repr__(self):
 
-        module_path = "featurize"
+        module_path = "operation"
         all_operations = get_operations(module_path)
         # print(all_operations)
 
