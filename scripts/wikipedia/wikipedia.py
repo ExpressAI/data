@@ -13,8 +13,8 @@ import datalabs
 from datalabs.tasks import TextClassification
 from datalabs import StructuredTextData
 from datalabs.operations.featurize.featurizing import featurizing, Featurizing
-from .ops import ops
 
+ 
 
 _DESCRIPTION = """\
 AG is a collection of more than 1 million news articles. News articles have been
