@@ -14,7 +14,7 @@ from datalabs.tasks import TextClassification
 from datalabs import StructuredTextData
 from datalabs.operations.featurize.featurizing import featurizing, Featurizing
 #from .featurize import *
-import operation as operation
+import wikipedia_ops as wikipedia_ops
 
 
 _DESCRIPTION = """\
@@ -51,7 +51,7 @@ _TEST_DOWNLOAD_URL = "https://raw.githubusercontent.com/mhjabreel/CharCnn_Keras/
 def get_operations(module_path:str):
     all_operations = {}
     #module = importlib.import_module(module_path)
-    module = operation
+    module = wikipedia_ops
 
     target_class = None
     # print(module)
@@ -92,7 +92,7 @@ class Wikipedia(StructuredTextData):
 
     def __repr__(self):
 
-        module_path = "operation"
+        module_path = "wikipedia_ops"
         all_operations = get_operations(module_path)
         # print(all_operations)
 
