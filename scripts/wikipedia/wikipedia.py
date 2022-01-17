@@ -6,14 +6,27 @@
 import os
 import csv
 import sys
-import importlib
+# we must expand the sys.path so that we can import local ops.py by:
+# importlib.import_module('ops')
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
+
+import importlib
+import py7zr
 from typing import Dict, List, Any, Optional, Iterator
 import datalabs
 from datalabs.tasks import TextClassification
 from datalabs import StructuredTextData
 from datalabs.operations.featurize.featurizing import featurizing, Featurizing
-import ops
+
+"""Caveat
+We cannot use following statement otherwise we can not download the ops.py file from remote server. 
+This restrict is made by the function load.py:get_imports 
+`from . import ops`
+"""
+from .ops import *
+
+
+
  
 
 _DESCRIPTION = """\
@@ -49,15 +62,13 @@ _TEST_DOWNLOAD_URL = "https://raw.githubusercontent.com/mhjabreel/CharCnn_Keras/
 
 def get_operations(module_path:str):
     all_operations = {}
-    #module = importlib.import_module(module_path)
-    module = ops
+    module = importlib.import_module(module_path)
+
 
     target_class = None
-    print(module)
+    # print(module)
     for name, obj in module.__dict__.items():
         if isinstance(obj, type) and issubclass(obj, Featurizing):
-            #and "_data_type" in obj.__dict__.items():
-            # print(obj.__dict__.items())
             target_class = obj
             break
 
@@ -88,19 +99,21 @@ class Wikipedia(StructuredTextData):
         self.max_cpu = os.cpu_count()
         self.data_local = self.download_to_local()
 
+        self.documents = None
+        self.tokens = None
+        self.size = None
+
 
     def __repr__(self):
 
         module_path = "ops"
         all_operations = get_operations(module_path)
-        # print(all_operations)
+
 
         repr = "\n\t" + "data_local_directory: " + self.data_local + "\n\t"
         repr += f"Following operations can be applied: \n\t"
         repr += "\n\t\t - ".join([v for k, v in all_operations.items()])
         repr += "\n\t\n\t" + f"Example: data.apply({list(all_operations.values())[0]}))"
-        # repr = "\n".join([f"{k}: {v}" for k, v in self.items()])
-        # repr = re.sub(r"^", " " * 4, repr, 0, re.M)
         return f"StructureTextData({{\n{repr}\n}})"
 
 
@@ -116,6 +129,29 @@ class Wikipedia(StructuredTextData):
             os.system(f"wget {self.data_remote} -O {homedir}/.cache/wikipedia-en-html.tar.7z")
             os.system(f"7z x -so {homedir}/.cache/wikipedia-en-html.tar.7z | tar xf - -C {homedir}/.cache/wikipedia")
         return f"{homedir}/.cache/wikipedia/en"
+
+    # def download_to_local(self):
+    #     homedir = self.homedir
+    #     os.makedirs(f"{homedir}/.cache", exist_ok=True)
+    #     if not os.path.exists(f"{homedir}/.cache/wikipedia/en"):
+    #         os.makedirs(f"{homedir}/.cache/wikipedia", exist_ok=True)
+    #         os.makedirs(f"{homedir}/.cache/wikipedia/en")
+    #         # Download and extract data
+    #         os.system(f"wget {self.data_remote} -O {homedir}/.cache/wikipedia-en-html.tar.7z")
+    #         with py7zr.SevenZipFile("wikipedia-en-html.tar.7z", "r") as z:
+    #             z.extractall(f"{homedir}/.cache/")
+    #         with tarfile.open("wikipedia-en-html.tar", "r") as f:
+    #             f.extractall(f"{homedir}/.cache/wikipedia")
+    #         # os.system(f"7z x -so {homedir}/.cache/wikipedia-en-html.tar.7z | tar xf - -C {homedir}/.cache/wikipedia")
+    #     else:
+    #         with py7zr.SevenZipFile(f"{homedir}/.cache/wikipedia-en-html.tar.7z", "r") as z:
+    #             z.extractall(f"{homedir}/.cache/")
+    #         with tarfile.open(f"{homedir}/.cache/wikipedia-en-html.tar", "r") as f:
+    #             f.extractall(f"{homedir}/.cache/wikipedia")
+    #     return f"{homedir}/.cache/wikipedia/en"
+
+
+
 
 
 

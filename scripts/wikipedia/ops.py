@@ -3,27 +3,29 @@ from typing import Callable, Mapping
 from datalabs.operations.featurize.featurizing import Featurizing, featurizing
 from multiprocessing import Pool
 import json
+from tqdm import tqdm
+from nltk import word_tokenize
 from lxml import etree
 
 class WikipediaFeaturizing(Featurizing):
 
 
-    def __init__(self, *args, **kwargs
+    def __init__(self, *args, _type = 'WikipediaFeaturizing', **kwargs
                  ):
 
         super(WikipediaFeaturizing, self).__init__(*args, **kwargs)
-        self._type = 'WikipediaFeaturizing'
+        self._type =  _type
         self._data_type = "wikipedia"
 
 
 
 class wikipedia_featurizing(featurizing):
-    def __init__(self, *args, **kwargs
+    def __init__(self, *args, _type = 'WikipediaFeaturizing', **kwargs
                  ):
 
 
         super(wikipedia_featurizing, self).__init__(*args, **kwargs)
-        # print(self.__dict__)
+        self._type = _type
 
 
     def __call__(self, *param_arg):
@@ -41,6 +43,7 @@ class wikipedia_featurizing(featurizing):
                                     task = self.task,
                                     description=self.description,
                                     processed_fields=self.processed_fields,
+                                    _type = self._type,
                                     )
             return tf_cls
 
@@ -229,25 +232,84 @@ def process_all_files(self, outpath, process):
 
 
 @wikipedia_featurizing(name = "extract_relations", contributor= "datalab", processed_fields= "text",
-                                 task="unsupervised data", description="this function is used for ")
+                       _type="WikipediaFeaturizing", task="unsupervised data", description="this function is used for ")
 def extract_relations(outpath):
     process_all_files(outpath, process_relations)
 
 
 @wikipedia_featurizing(name = "extract_text_entities", contributor= "datalab", processed_fields= "text",
-                                 task="unsupervised data", description="this function is used for ")
+                       _type="WikipediaFeaturizing",  task="unsupervised data", description="this function is used for ")
 def extract_text_entities(outpath):
     process_all_files(outpath, process_text_entities)
 
 
 @wikipedia_featurizing(name = "extract_toc", contributor= "datalab", processed_fields= "text",
-                                 task="unsupervised data", description="this function is used for ")
+                       _type="WikipediaFeaturizing",   task="unsupervised data", description="this function is used for ")
 def extract_toc(outpath):
     process_all_files(outpath, process_toc)
 
 
 
+def match_entities_sequentially(text, all_entities, max_entity_len):
+    start_idx = 0
+    if len(all_entities) == 0:
+        return []
+    curr_entities = []
+    tokens = word_tokenize(text)
+    while start_idx < len(tokens):
+        flag = False
+        for span_len in range(1, max_entity_len + 1):
+            curr_span = tokens[start_idx: start_idx + span_len]
+            curr_span = " ".join(curr_span)
+            if curr_span in all_entities:
+                curr_entities.append(curr_span)
+                flag = True
+                start_idx += span_len
+                break
+        if not flag:
+            start_idx += 1
+    return curr_entities
 
+
+def get_labeled_entities(file, outpath):
+    outfile = open(outpath, "w")
+    with open(file, "r") as f:
+        for line in tqdm(f.readlines()):
+            line = line.strip()
+            text = json.loads(line)
+            # First get all entities, filter out [number]
+            all_entities = {}
+            max_entity_len = float("-inf")
+            for k, v in text.items():
+                # Each k, v corredpond to several paragraphs here
+                for each in v:
+                    curr_entities = each["entities"]
+                    for curr_entity in curr_entities:
+                        if curr_entity.startswith("[") and curr_entity.endswith("]"):
+                            continue
+                        if curr_entity not in all_entities:
+                            all_entities[curr_entity] = True
+                            if len(curr_entity.split(" ")) > max_entity_len:
+                                max_entity_len = len(curr_entity.split(" "))
+
+            for k, v in text.items():
+                # Each k, v correspond to several paragraphs here
+                for each in v:
+                    curr_text = each["text"]
+                    if "copyright" in curr_text:
+                        continue
+                    if len(curr_text.split(" ")) < 10:
+                        # Filter out too short sentences
+                        continue
+                    curr_entities = match_entities_sequentially(curr_text, all_entities, max_entity_len)
+                    datum = {"text": curr_text, "entities": curr_entities}
+                    print(datum, file=outfile)
+
+
+@wikipedia_featurizing(name = "get_labeled_entities", contributor= "datalab", processed_fields= "text",
+                       _type="WikipediaLabeling",   task="unsupervised data", description="this function is used for ")
+def get_labeled_entities(outpath):
+    process_all_files(outpath, process_toc)
 
 
 
