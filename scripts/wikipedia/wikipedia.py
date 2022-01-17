@@ -7,7 +7,7 @@ import os
 import csv
 import sys
 import importlib
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 from typing import Dict, List, Any, Optional, Iterator
 import datalabs
 from datalabs.tasks import TextClassification
