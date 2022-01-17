@@ -14,7 +14,7 @@ from datalabs.tasks import TextClassification
 from datalabs import StructuredTextData
 from datalabs.operations.featurize.featurizing import featurizing, Featurizing
 #from .featurize import *
-import featurize as featurize
+import operation as operation
 
 
 _DESCRIPTION = """\
