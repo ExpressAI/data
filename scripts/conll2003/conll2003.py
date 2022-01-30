@@ -51,7 +51,7 @@ tagging scheme, whereas the original dataset uses IOB1.
 For more details see https://www.clips.uantwerpen.be/conll2003/ner/ and https://www.aclweb.org/anthology/W03-0419
 """
 
-_URL = "https://github.com/davidsbatista/NER-datasets/raw/master/CONLL2003/"
+_URL = "https://data.deepai.org/conll2003.zip"
 _TRAINING_FILE = "train.txt"
 _DEV_FILE = "valid.txt"
 _TEST_FILE = "test.txt"
