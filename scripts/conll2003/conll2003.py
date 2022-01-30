@@ -17,6 +17,7 @@
 """Introduction to the CoNLL-2003 Shared Task: Language-Independent Named Entity Recognition"""
 
 import datalabs
+import os
 from datalabs.tasks import SequenceLabeling
 from datalabs.task_dataset import SequenceLabelingDataset
 
