@@ -7,11 +7,12 @@ from promptware.promptware import PromptConfig, Promptware
 from promptware.tasks import TaskType
 
 
-class SentimentClassifierPromptware(Promptware):
+class LinguisticAcceptabilityClassificationPromptware(Promptware):
     def _info(self) -> SoftwareInfo:
         return SoftwareInfo(
-            description="This promptware is used to identify the sentiment of a "
-            "sentence (positive or negative) based on some learning",
+            description="This promptware is used to identify whether a"
+            " sentence is a grammatical English sentence based on some learning"
+            " samples from the cola dataset.",
             creator="Promptware Authors",
             homepage="https://github.com/expressai/promptware",
             reference="",
@@ -32,16 +33,15 @@ class SentimentClassifierPromptware(Promptware):
 
     def _software_configs(self):
         return {
-            "sentiment_classification": PromptConfig(
-                name="sentiment_classification",
-                description="This promptware is used to identify the sentiment of a"
-                " sentence (positive or negative) based on some learning"
-                " samples from the sst2 dataset.",
-                instruction="Give a sentence, classify the sentiment of it"
-                " using negative and positive labels",
+            "linguistic_acceptability_classification": PromptConfig(
+                name="linguistic_acceptability_classification",
+                description="This promptware is used to identify whether a"
+                " sentence is a grammatical English sentence based on some learning"
+                " samples from the cola dataset.",
+                instruction="Is the following sentence a grammatical English sentence?",
                 demonstration=[
-                    "I love this movie.\npositive",
-                    "This movie is too boring.\nnegative",
+                    "They drank the pub.\nno",
+                    "When Bill smokes, all the more does Susan hate him.\nyes",
                 ],
                 prompt_template=lambda input: f"{input['text']}",
                 task=TaskType.text_classification,

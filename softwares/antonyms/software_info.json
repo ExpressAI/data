@@ -1,0 +1,38 @@
+{
+    "description": "This promptware is used to identify the relationship between two words",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": "antonym-identification",
+    "module_name": "antonyms_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1.0,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        }
+    },
+    "software_configs": {
+        "antonyms": {
+            "name": "antonyms",
+            "description": "This promptware is used to identify the  relationship between two words",
+            "instruction": "take the inputted word and pair it with its antonym",
+            "demonstration": [
+                "Informed\nUninformed\n\n.",
+                "shout\nwhisper\n\n",
+                "harmony\ndissonance\n\n"
+            ],
+            "prompt_template": "<function AntonymsPromptware._software_configs.<locals>.<lambda> at 0x7fc996a8e700>",
+            "task": [
+                "conditional-generation"
+            ]
+        }
+    }
+}

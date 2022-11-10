@@ -7,17 +7,17 @@ from promptware.promptware import PromptConfig, Promptware
 from promptware.tasks import TaskType
 
 
-class SentimentClassifierPromptware(Promptware):
+class AntonymsPromptware(Promptware):
     def _info(self) -> SoftwareInfo:
         return SoftwareInfo(
-            description="This promptware is used to identify the sentiment of a "
-            "sentence (positive or negative) based on some learning",
+            description="This promptware is used to identify the relationship"
+            " between two words",
             creator="Promptware Authors",
             homepage="https://github.com/expressai/promptware",
             reference="",
             codebase_url="https://github.com/expressai/promptware/tree/main/softwares",
             license=LicenseType.apache_2_0,
-            task=TaskType.text_classification,
+            task=TaskType.antonym_identification,
         )
 
     def _kernel_configs(self):
@@ -32,18 +32,19 @@ class SentimentClassifierPromptware(Promptware):
 
     def _software_configs(self):
         return {
-            "sentiment_classification": PromptConfig(
-                name="sentiment_classification",
-                description="This promptware is used to identify the sentiment of a"
-                " sentence (positive or negative) based on some learning"
-                " samples from the sst2 dataset.",
-                instruction="Give a sentence, classify the sentiment of it"
-                " using negative and positive labels",
+            "antonyms": PromptConfig(
+                name="antonyms",
+                description="This promptware is used to identify the  relationship"
+                " between two words",
+                instruction="take the inputted word and pair it with its antonym",
                 demonstration=[
-                    "I love this movie.\npositive",
-                    "This movie is too boring.\nnegative",
+                    "Informed\n" "Uninformed\n\n.",
+                    "shout\n" "whisper\n\n",
+                    "harmony\ndissonance\n\n",
                 ],
                 prompt_template=lambda input: f"{input['text']}",
-                task=TaskType.text_classification,
+                task=[
+                    TaskType.conditional_generation.value,
+                ],
             )
         }

@@ -1,0 +1,31 @@
+{
+    "description": "Gaokao English Cloze Hint",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": "cloze-generative",
+    "module_name": "gaokao_cloze_hint_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "max_tokens": 40,
+            "temperature": 0.0,
+            "model_name": "text-davinci-002"
+        }
+    },
+    "software_configs": {
+        "gaokao_cloze_hint": {
+            "name": "gaokao_cloze_hint",
+            "description": "Gaokao English Cloze Hint",
+            "instruction": "",
+            "demonstration": [
+                "There has been a recent trend in the food service industry toward lower fat content and less salt. This trend, which was started by the medical community <Q61> a method of fighting heart disease, has had some unintended side <Q62> such as overweight and heart disease the very thing the medical community was trying to fight. Fat and salt are very important parts of a diet. They are required <Q63> the food that we eat, to recover from injury and for several other bodily functions. When fat and salt <Q64> from food, the food tastes as if is missing something. As <Q65> result, people will eat more food to try to make up for that something missing. Even <Q66>, the amount of fast food that people eat goes up. Fast food <Q67> full of fat and salt; by <Q68> more fast food people will get more salt and fat than they need in their diet. Having enough fat and salt in your meals will reduce the urge to snack between meals and will improve the taste of your food. However, be <Q69> not to go to extremes. Like anything, it is possible to have too much of both, <Q70> is not good for the health.\nWhat should be filled in at the <Q61> position?\nas\n",
+                "There has been a recent trend in the food service industry toward lower fat content and less salt. This trend, which was started by the medical community as a method of fighting heart disease, has had some unintended side effects such as overweight and heart disease the very thing the medical community was trying to fight. Fat and salt are very important parts of a diet. They are required to process the food that we eat, to recover from injury and for several other bodily functions. When fat and salt <Q64> from food, the food tastes as if is missing something. As <Q65> result, people will eat more food to try to make up for that something missing. Even <Q66>, the amount of fast food that people eat goes up. Fast food <Q67> full of fat and salt; by <Q68> more fast food people will get more salt and fat than they need in their diet. Having enough fat and salt in your meals will reduce the urge to snack between meals and will improve the taste of your food. However, be <Q69> not to go to extremes. Like anything, it is possible to have too much of both, <Q70> is not good for the health.\nWhat should be filled in at the <Q64> position given the hint \"remove\"?\nare removed"
+            ],
+            "prompt_template": "<function <lambda> at 0x7fe0c991e310>"
+        }
+    }
+}

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from promptware.info import SoftwareInfo
 from promptware.kernels.plm import PLMKernelConfig
+from promptware.licenses import LicenseType
 from promptware.promptware import PromptConfig, Promptware
 from promptware.tasks import TaskType
 
@@ -33,9 +34,7 @@ machine_translation_enzh = PromptConfig(
         "拉城的同一文明遗留下来的砂岩陵墓所在地。\n",
     ],
     prompt_template=lambda input: f"{input['translation']['en']}",
-    task=[
-        TaskType.machine_translation.value,
-    ],
+    task=TaskType.machine_translation,
 )
 
 machine_translation_zhen = PromptConfig(
@@ -66,9 +65,7 @@ machine_translation_zhen = PromptConfig(
         " built the Jordanian city of Petra.\n",
     ],
     prompt_template=lambda input: f"{input['translation']['zh']}",
-    task=[
-        TaskType.machine_translation.value,
-    ],
+    task=TaskType.machine_translation,
 )
 
 
@@ -76,19 +73,21 @@ class MachineTranslationPromptware(Promptware):
     def _info(self) -> SoftwareInfo:
         return SoftwareInfo(
             description="Machine translation from English to Chinese.",
-            homepage="",
+            creator="Promptware Authors",
+            homepage="https://github.com/expressai/promptware",
             reference="",
-            license="",
-            codebase_url="",
+            codebase_url="https://github.com/expressai/promptware/tree/main/softwares",
+            license=LicenseType.apache_2_0,
+            task=TaskType.machine_translation,
         )
 
     def _kernel_configs(self):
         return {
             "openai": PLMKernelConfig(
                 platform="openai",
+                model_name="text-curie-001",
                 max_tokens=64,
                 temperature=0,
-                model_name="text-curie-001",
             )
         }
 
