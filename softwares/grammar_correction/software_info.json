@@ -1,0 +1,36 @@
+{
+    "description": "Corrects sentences into standard English.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/default-grammar",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/default-grammar",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "module_name": "grammar_correction_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 60,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
+        }
+    },
+    "software_configs": {
+        "grammar_correction": {
+            "name": "grammar_correction",
+            "description": "Corrects sentences into standard English.",
+            "instruction": "Correct this to standard English:",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\\n\",",
+            "task": "conditional-generation"
+        }
+    }
+}

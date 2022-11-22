@@ -1,0 +1,49 @@
+{
+    "description": "Explain a complicated piece of code.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/default-explain-code",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/default-explain-code",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "module_name": "explain_code_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai1": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
+        },
+        "openai2": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
+        }
+    },
+    "software_configs": {
+        "explain_code_general": {
+            "name": "explain_code_general",
+            "description": "Explain a complicated piece of code.",
+            "instruction": "A table summarizing the following text.",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['code']}\\n\\\"\\\"\\\"\\n\"",
+            "task": "conditional-generation"
+        }
+    }
+}

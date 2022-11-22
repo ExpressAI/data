@@ -14,9 +14,12 @@
             "model_name": "text-curie-001",
             "max_tokens": 64,
             "temperature": 0,
-            "top_p": 1.0,
+            "top_p": 1,
             "frequency_penalty": 0.0,
-            "presence_penalty": 0.0
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
         }
     },
     "software_configs": {
@@ -29,7 +32,7 @@
                 "shout\nwhisper\n\n",
                 "harmony\ndissonance\n\n"
             ],
-            "prompt_template": "<function AntonymsPromptware._software_configs.<locals>.<lambda> at 0x7fc996a8e700>",
+            "prompt_template": "lambda input: f\"{input['text']}\",",
             "task": [
                 "conditional-generation"
             ]

@@ -11,9 +11,15 @@
     "kernel_configs": {
         "openai": {
             "platform": "openai",
+            "model_name": "text-curie-001",
             "max_tokens": 64,
             "temperature": 0,
-            "model_name": "text-curie-001"
+            "top_p": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
         }
     },
     "software_configs": {
@@ -25,7 +31,8 @@
                 "I love this movie.\npositive",
                 "This movie is too boring.\nnegative"
             ],
-            "prompt_template": "<function SentimentClassifierPromptware._software_configs.<locals>.<lambda> at 0x7fe0c991eee0>"
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "text-classification"
         }
     }
 }

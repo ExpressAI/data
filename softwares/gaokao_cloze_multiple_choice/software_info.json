@@ -11,9 +11,15 @@
     "kernel_configs": {
         "openai": {
             "platform": "openai",
+            "model_name": "text-davinci-002",
             "max_tokens": 40,
             "temperature": 0.0,
-            "model_name": "text-davinci-002"
+            "top_p": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
         }
     },
     "software_configs": {
@@ -25,7 +31,8 @@
                 "If anyone had told me three years ago that I would be spending most of my weekends camping. I would have laughed heartily. Campers, in my eyes, were people who enjoyed insects bites, ill-cooked meals, and uncomfortable sleeping bags. They had nothing in common with me. <Q36> The friends who introduced me to camping thought that it meant to be a pioneer. <Q37> We sleep in a tent, cooked over an open fire, and walked a long distance to take the shower and use the bathroom. This brief visit with Mother Nature cost me two days off from work, recovering from a bad case of sunburn and the doctor's bill for my son's food poisoning. I was, nevertheless, talked into going on another fun-filled holiday in the wilderness. <Q38> Instead, we had a pop-up camper with comfortable beds and an air conditioner. My nature-loving friends had remembered to bring all the necessities of life. <Q39> We have done a lot of it since. Recently, we bought a twenty-eight-foot travel trailer complete with a bathroom and a built-in TV set. There is a separate bedroom, a modern kitchen with a refrigerator. The trailer even has matching carpet and curtains. <Q40> It must be true that sooner or later, everyone finds his or her way back to nature. I recommend that you find your way in style. \nWhat should be filled in at the <Q36> position? \"This time there was no tent.\", \"Things are going to be improved.\", \"The trip they took me on was a rough one.\", \"I was to learn a lot about camping since then, however.\", \"I must say that I have certainly come to enjoy camping.\", \"After the trip, my family became quite interested in camping.\" or \"There was no shade as the trees were no more than 3 feet tall.\"?\nI was to learn a lot about camping since then, however.\n",
                 "If anyone had told me three years ago that I would be spending most of my weekends camping. I would have laughed heartily. Campers, in my eyes, were people who enjoyed insects bites, ill-cooked meals, and uncomfortable sleeping bags. They had nothing in common with me. I was to learn a lot about camping since then, however. The friends who introduced me to camping thought that it meant to be a pioneer. The trip they took me on was a rough one. We sleep in a tent, cooked over an open fire, and walked a long distance to take the shower and use the bathroom. This brief visit with Mother Nature cost me two days off from work, recovering from a bad case of sunburn and the doctor's bill for my son's food poisoning. I was, nevertheless, talked into going on another fun-filled holiday in the wilderness. <Q38> Instead, we had a pop-up camper with comfortable beds and an air conditioner. My nature-loving friends had remembered to bring all the necessities of life. <Q39> We have done a lot of it since. Recently, we bought a twenty-eight-foot travel trailer complete with a bathroom and a built-in TV set. There is a separate bedroom, a modern kitchen with a refrigerator. The trailer even has matching carpet and curtains. <Q40> It must be true that sooner or later, everyone finds his or her way back to nature. I recommend that you find your way in style. \nWhat should be filled in at the <Q38> position? \"This time there was no tent.\", \"Things are going to be improved.\", \"The trip they took me on was a rough one.\", \"I was to learn a lot about camping since then, however.\", \"I must say that I have certainly come to enjoy camping.\", \"After the trip, my family became quite interested in camping.\" or \"There was no shade as the trees were no more than 3 feet tall.\"?\nThis time there was no tent.\n"
             ],
-            "prompt_template": "<function <lambda> at 0x7fe0c98733a0>"
+            "prompt_template": "lambda input: f\"{normalize_text(input['context'])}\\n\"",
+            "task": "cloze-multiple-choice"
         }
     }
 }

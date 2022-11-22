@@ -1,0 +1,37 @@
+{
+    "description": "GPT3 is a good prompt engineer and it can help us to generate an instruction based on input and output pairs.",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": "conditional-generation",
+    "module_name": "prompt_engineer_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-002",
+            "max_tokens": 256,
+            "temperature": 0,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
+        }
+    },
+    "software_configs": {
+        "prompt_engineer": {
+            "name": "prompt_engineer",
+            "description": "This promptware is used to generate an instruction based on given input pairs",
+            "instruction": "GPT3 is a good prompt engineer and it can help us to generate instruction based on input and output pairs.\n",
+            "demonstration": [
+                "I gave a friend an instruction. Based on the instruction they produced the following input-output pairs:\n\nInput: I love this movie.\nOutput: positive\n\nInput: The movie is boring.\nOutput: negative\n\nThe instruction was to  find: the sentiment of the movie review.\n"
+            ],
+            "prompt_template": "lambda",
+            "task": "conditional-generation"
+        }
+    }
+}

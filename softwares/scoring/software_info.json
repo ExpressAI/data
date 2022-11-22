@@ -1,0 +1,35 @@
+{
+    "description": "This software is used to caculate the average log probability of a text",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": "others",
+    "module_name": "scoring_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 0,
+            "temperature": 0,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": true
+        }
+    },
+    "software_configs": {
+        "scoring": {
+            "name": "scoring",
+            "description": "Given a text, generate the average of its log probabilities",
+            "instruction": "",
+            "demonstration": null,
+            "prompt_template": "lambda text: f\"{text}\",",
+            "task": "others"
+        }
+    }
+}
