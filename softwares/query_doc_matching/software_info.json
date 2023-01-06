@@ -1,0 +1,67 @@
+{
+    "description": "This software is to identify if a query semantically relevant to a document.",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": null,
+    "research_tasks": [
+        "text-classification"
+    ],
+    "application_categories": [
+        "classification"
+    ],
+    "application_subcategories": [
+        "general-classification"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "query_doc_matching_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-002",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "query_doc_matching": {
+            "name": "query_doc_matching",
+            "description": "This software is to identify if a query semantically relevant to a document.",
+            "instruction": "Decide whether the documents are relevant to the given search query:\n",
+            "demonstration": [
+                "Query: Jackie Chan's birthday\nDocuments: https://en.wikipedia.org/wiki/Jackie_Chan|Jackie Chan - Wikipedia|Fang Shilong (born 7 April 1954), known professionally in English as Jackie Chan and in Chinese as Cheng Long, is a Hong Kong actor, filmmaker, martial artist, and stuntman known for his slapstick acrobatic fighting style, comic timing, and innovative stunts, which he typically performs himself. Chan has been acting since the 1960s, performing in more than 150 films. He is one of the most popular action film stars of all time.\nResult: Relevant\n",
+                "Query:Pengfei Liu in NLP\nDocuments:https://scholar.google.com/citations?user=oIz_CYEAAAAJ&hl=en|\u202aPengfei Liu\u202c - \u202aGoogle Scholar|Carnegie Mellon University -\u202aNatural Language Processing\u202c - \u202aText Summarization\u202c - \u202aDiagnosis for NLP Models\u202c - \u202aMulti-task/Transfer\nResult: Relevant\n\u202c",
+                "Query: Chinese New Year 2023\nDocuments: https://en.wikipedia.org/wiki/Tang_dynasty|Tang dynasty - Wikipedia| The Tang dynasty, or Tang Empire, was an imperial dynasty of China that ruled from 618 to 907 AD, with an interregnum between 690 and 705. It was preceded by the Sui dynasty and followed by the Five Dynasties and Ten Kingdoms period.\nResult:Not relevant\n"
+            ],
+            "prompt_template": "lambda input: f\"Query: {input['query']}\\nDocuments:\"",
+            "task": "text-pair-classification"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "query": "Zhiyuan Liu address",
+            "document": {
+                "title": "Zhiyuan Liu",
+                "link": "https://nlp.csai.tsinghua.edu.cn/~lzy/",
+                "document": " I'm an associate professor at Tsinghua University. I am always looking for highly-motivated post-docs and visiting scholars to work together on natural language processing, knowledge graphs, and social computing. Please read the Natural Language Processing. Language: English. The degree course of CS graduate students (specially for the Master Program of Advanced Programming) at Tsinghua University. [ Foundations of Object-Oriented Programming. Language: Chinese. The compulsory course of CS undergraduate students at Tsinghua University."
+            },
+            "output": ""
+        }
+    },
+    "example_prompt": "Decide whether the documents are relevant to the given search query:\n\nQuery: Jackie Chan's birthday\nDocuments: https://en.wikipedia.org/wiki/Jackie_Chan|Jackie Chan - Wikipedia|Fang Shilong (born 7 April 1954), known professionally in English as Jackie Chan and in Chinese as Cheng Long, is a Hong Kong actor, filmmaker, martial artist, and stuntman known for his slapstick acrobatic fighting style, comic timing, and innovative stunts, which he typically performs himself. Chan has been acting since the 1960s, performing in more than 150 films. He is one of the most popular action film stars of all time.\nResult: Relevant\n\nQuery:Pengfei Liu in NLP\nDocuments:https://scholar.google.com/citations?user=oIz_CYEAAAAJ&hl=en|\u202aPengfei Liu\u202c - \u202aGoogle Scholar|Carnegie Mellon University -\u202aNatural Language Processing\u202c - \u202aText Summarization\u202c - \u202aDiagnosis for NLP Models\u202c - \u202aMulti-task/Transfer\nResult: Relevant\n\u202c\nQuery: Chinese New Year 2023\nDocuments: https://en.wikipedia.org/wiki/Tang_dynasty|Tang dynasty - Wikipedia| The Tang dynasty, or Tang Empire, was an imperial dynasty of China that ruled from 618 to 907 AD, with an interregnum between 690 and 705. It was preceded by the Sui dynasty and followed by the Five Dynasties and Ten Kingdoms period.\nResult:Not relevant\n\nQuery: Zhiyuan Liu address\nDocuments:https://nlp.csai.tsinghua.edu.cn/~lzy/ | Zhiyuan Liu |  I'm an associate professor at Tsinghua University. I am always looking for highly-motivated post-docs and visiting scholars to work together on natural language processing, knowledge graphs, and social computing. Please read the Natural Language Processing. Language: English. The degree course of CS graduate students (specially for the Master Program of Advanced Programming) at Tsinghua University. [ Foundations of Object-Oriented Programming. Language: Chinese. The compulsory course of CS undergraduate students at Tsinghua University.\nResult: \n"
+}
