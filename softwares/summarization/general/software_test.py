@@ -14,9 +14,8 @@ class TestSummarizationPromptware(unittest.TestCase):
         file_path = software.info.write_to_directory(current_path)
         self.assertTrue(os.path.exists(file_path))
 
-    """
     def test_execute_default(self):
-        software = SummarizationPromptware(config_name="default")
+        software = SummarizationPromptware()
         input = {
             "text": "Jupiter is the fifth planet from the Sun "
             "and the largest in the Solar System. It is a gas "
@@ -32,15 +31,3 @@ class TestSummarizationPromptware(unittest.TestCase):
         result = software.execute(input)
         print(result)
         self.assertGreater(len(result), 0)
-
-    def test_execute_meeting_notes(self):
-        software = SummarizationPromptware(config_name="meeting_notes")
-        input = {"meeting_notes": "Tom: Profits up 50%\n"
-                 "Jane: New servers are online\n"
-                 "Kjel: Need more time to fix software\n"
-                 "Jane: Happy to help\n"
-                 "Parkman: Beta testing almost done\n"}
-        result = software.execute(input)
-        print(result)
-        self.assertGreater(len(result), 0)
-    """
