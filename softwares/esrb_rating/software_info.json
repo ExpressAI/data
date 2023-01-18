@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to categorize text based upon ESRB ratings.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "esrb_ratings_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 60,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "\n"
+            ]
+        }
+    },
+    "software_configs": {
+        "esrb_rating": {
+            "name": "esrb_rating",
+            "description": "This promptware is used to categorize text based upon ESRB ratings.",
+            "instruction": "Provide an ESRB rating for the following text:\n\n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "\"i'm going to blow your brains out with my ray gun then stomp on your guts.\"\n\nESRB rating:"
+        },
+        "output": "Mature (M)"
+    },
+    "example_prompt": "Provide an ESRB rating for the following text:\n\n\n\n\"i'm going to blow your brains out with my ray gun then stomp on your guts.\"\n\nESRB rating:\n"
+}

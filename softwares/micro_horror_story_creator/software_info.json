@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to creates two to three sentence short horror stories from a topic input.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "micro_horror_story_creator_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 60,
+            "temperature": 0.8,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.5,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "micro_horror_story_creator_test": {
+            "name": "micro_horror_story_creator_test",
+            "description": "This promptware is used to creates two to three sentence short horror stories from a topic input.",
+            "instruction": "",
+            "demonstration": [
+                "Topic: Breakfast\nTwo-Sentence Horror Story: He always stops crying when I pour the milk on his cereal. I just have to remember not to let him see his face on the carton.\n    \n"
+            ],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Topic: Wind\nTwo-Sentence Horror Story:"
+        },
+        "output": "The wind howled as if it was crying for help. I could feel icy fingers brushing against my skin, beckoning me to follow them."
+    },
+    "example_prompt": "Topic: Breakfast\nTwo-Sentence Horror Story: He always stops crying when I pour the milk on his cereal. I just have to remember not to let him see his face on the carton.\n    \n\nTopic: Wind\nTwo-Sentence Horror Story:\n"
+}

@@ -1,0 +1,52 @@
+{
+    "description": "This promptware is used to create interview questions.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "interview_questions_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 150,
+            "temperature": 0.5,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "interview_questions": {
+            "name": "interview_questions",
+            "description": "This promptware is used to create interview questions.",
+            "instruction": "",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Create a list of 8 questions for my interview with a science fiction author:"
+        },
+        "output": "1. What inspired you to write science fiction?\n2. How have you seen the genre of science fiction evolve over the years?\n3. What do you think are the most important elements for creating a successful science fiction story?\n4. What advice would you give to aspiring science fiction authors?\n5. What has been the most rewarding part of your writing career?\n6. What are some of the biggest challenges you have faced as a science fiction author?\n7. What is the most interesting thing you have learned while researching for your science fiction stories?\n8. What do you think the future of science fiction holds?"
+    },
+    "example_prompt": "\nCreate a list of 8 questions for my interview with a science fiction author:\n"
+}

@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to structure the prompt for checking for bugs. Here we add a comment suggesting that source code is buggy, and then ask codex to generate a fixed code.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "python_bug_fixer_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 182,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "###"
+            ]
+        }
+    },
+    "software_configs": {
+        "python_bug_fixer": {
+            "name": "python_bug_fixer",
+            "description": "This promptware is used to structure the prompt for checking for bugs. Here we add a comment suggesting that source code is buggy, and then ask codex to generate a fixed code.",
+            "instruction": "##### Fix bugs in the below function\n \n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "### Buggy Python\nimport Random\na = random.randint(1,12)\nb = random.randint(1,12)\nfor i in range(10):\n    question = \"What is \"+a+\" x \"+b+\"? \"\n    answer = input(question)\n    if answer = a*b\n        print (Well done!)\n    else:\n        print(\"No.\")\n    \n### Fixed Python"
+        },
+        "output": "import random\na = random.randint(1,12)\nb = random.randint(1,12)\nfor i in range(10):\n    question = \"What is \"+str(a)+\" x \"+str(b)+\"? \"\n    answer = int(input(question))\n    if answer == a*b:\n        print (\"Well done!\")\n    else:\n        print(\"No.\")"
+    },
+    "example_prompt": "##### Fix bugs in the below function\n \n\n\n### Buggy Python\nimport Random\na = random.randint(1,12)\nb = random.randint(1,12)\nfor i in range(10):\n    question = \"What is \"+a+\" x \"+b+\"? \"\n    answer = input(question)\n    if answer = a*b\n        print (Well done!)\n    else:\n        print(\"No.\")\n    \n### Fixed Python\n"
+}

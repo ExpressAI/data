@@ -13,7 +13,6 @@ from promptware.info import SoftwareInfo
 from promptware.kernels.plm import PLMKernelConfig
 from promptware.promptware import PromptConfig, Promptware
 
-
 summarization_meeting_notes = PromptConfig(
     name="summarization_meeting_notes",
     description="Turn meeting notes into a summary.",

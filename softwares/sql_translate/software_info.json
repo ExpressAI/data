@@ -1,0 +1,55 @@
+{
+    "description": "This promptware is used to translate natural language to SQL queries.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "sql_translate_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "code-davinci-002",
+            "max_tokens": 150,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "#",
+                ";"
+            ]
+        }
+    },
+    "software_configs": {
+        "sql_translate": {
+            "name": "sql_translate",
+            "description": "This promptware is used to translate natural language to SQL queries.",
+            "instruction": "### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### ",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "A query to list the names of the departments which employed more than 10 employees in the last 3 months\nSELECT"
+        },
+        "output": "d.name\nFROM\n    Department d\n    INNER JOIN Employee e ON d.id = e.department_id\n    INNER JOIN Salary_Payments sp ON e.id = sp.employee_id\nWHERE\n    sp.date >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)\nGROUP BY\n    d.name\nHAVING\n    COUNT(e.id) > 10"
+    },
+    "example_prompt": "### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### \n\nA query to list the names of the departments which employed more than 10 employees in the last 3 months\nSELECT\n"
+}

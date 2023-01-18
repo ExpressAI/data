@@ -1,0 +1,52 @@
+{
+    "description": "This promptware is used to create a recipe from a list of ingredients.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "recipe_creator_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 120,
+            "temperature": 0.3,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "recipe_creator": {
+            "name": "recipe_creator",
+            "description": "This promptware is used to create a recipe from a list of ingredients.",
+            "instruction": "Write a recipe based on these ingredients and instructions:\n\n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Frito Pie\n\nIngredients:\nFritos\nChili\nShredded cheddar cheese\nSweet white or red onions, diced small\nSour cream\n\nInstructions:"
+        },
+        "output": "1. Preheat oven to 350 degrees F.\n\n2. Spread a layer of Fritos in the bottom of a 9x13 inch baking dish.\n\n3. Top with chili and spread evenly.\n\n4. Sprinkle shredded cheese over chili.\n\n5. Add diced onions over cheese.\n\n6. Bake in preheated oven for 20 minutes.\n\n7. Remove from oven and top with a dollop of sour cream.\n\n8. Serve and enjoy!"
+    },
+    "example_prompt": "Write a recipe based on these ingredients and instructions:\n\n\n\nFrito Pie\n\nIngredients:\nFritos\nChili\nShredded cheddar cheese\nSweet white or red onions, diced small\nSour cream\n\nInstructions:\n"
+}

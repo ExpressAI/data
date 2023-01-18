@@ -1,0 +1,52 @@
+{
+    "description": "This promptware is used to convert natural language to turn-by-turn directions.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "turn_by_turn_directions_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 64,
+            "temperature": 0.3,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "turn_by_turn_directions": {
+            "name": "turn_by_turn_directions",
+            "description": "This promptware is used to convert natural language to turn-by-turn directions.",
+            "instruction": "Create a numbered list of turn-by-turn directions from this text: \n\n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Go south on 95 until you hit Sunrise boulevard then take it east to us 1 and head south. Tom Jenkins bbq will be on the left after several miles."
+        },
+        "output": "1. Go south on 95\n2. Take Sunrise Boulevard east\n3. Head south on US 1\n4. Tom Jenkins BBQ will be on the left after several miles"
+    },
+    "example_prompt": "Create a numbered list of turn-by-turn directions from this text: \n\n\n\nGo south on 95 until you hit Sunrise boulevard then take it east to us 1 and head south. Tom Jenkins bbq will be on the left after several miles.\n"
+}

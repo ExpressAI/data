@@ -1,0 +1,49 @@
+{
+    "description": "Summarize long text to short text.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "qa-open-domain",
+    "module_name": "summarization_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai1": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 200,
+            "temperature": 0.7,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
+        },
+        "openai2": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 100,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false
+        }
+    },
+    "software_configs": {
+        "summarization_general": {
+            "name": "summarization_general",
+            "description": "Translates difficult text into simpler concepts.",
+            "instruction": "Summarize the following text into simpler concepts:",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\\n\",",
+            "task": "summarization"
+        }
+    }
+}

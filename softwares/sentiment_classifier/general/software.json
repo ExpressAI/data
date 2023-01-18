@@ -1,8 +1,0 @@
-{
-  "prompt": "Text: I love this movie\nLabel: Positive\n",
-  "formatter": "Text:{text}\nLabel:",
-  "kernel_config": {
-    "model_name": "text-davinci-002",
-    "max_tokens": 64
-  }
-}

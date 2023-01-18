@@ -5,7 +5,7 @@ import unittest
 current_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
 sys.path.append(current_path)
 
-from summarization import SummarizationPromptware  # noqa
+from .software import SummarizationPromptware  # noqa
 
 
 class TestSummarizationPromptware(unittest.TestCase):
@@ -13,7 +13,6 @@ class TestSummarizationPromptware(unittest.TestCase):
         software = SummarizationPromptware()
         file_path = software.info.write_to_directory(current_path)
         self.assertTrue(os.path.exists(file_path))
-
 
     # def test_execute_meeting_notes(self):
     #     software = SummarizationPromptware()
@@ -25,4 +24,3 @@ class TestSummarizationPromptware(unittest.TestCase):
     #     result = software.execute(input)
     #     print(result)
     #     self.assertGreater(len(result), 0)
-

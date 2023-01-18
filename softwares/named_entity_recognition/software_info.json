@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to extract entity in the text",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": "named-entity-recognition",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "named_entity_recognition_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "sentiment_classification": {
+            "name": "named-entity-recognition",
+            "description": "This promptware is used to extract entities in the text",
+            "instruction": "",
+            "demonstration": [
+                "I will go to Beijing on Saturday.\nEntity: Beijing.\n\nHe is a student in Peking University.\nEntity: Peking University\n\n"
+            ],
+            "prompt_template": "lambda input: f\"{input['text']}\\nEntity:\",",
+            "task": "named-entity-recognition"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "I will go to New York on Saturday."
+        },
+        "output": "New York."
+    },
+    "example_prompt": "I will go to Beijing on Saturday.\nEntity: Beijing.\n\nHe is a student in Peking University.\nEntity: Peking University\n\n\nI will go to New York on Saturday.\nEntity:\n"
+}

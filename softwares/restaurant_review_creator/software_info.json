@@ -1,0 +1,52 @@
+{
+    "description": "This promptware is used to turn a few words into a restaurant review.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "restaurant_review_creator_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 64,
+            "temperature": 0.5,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "restaurant_review_creator": {
+            "name": "restaurant_review_creator",
+            "description": "This promptware is used to turn a few words into a restaurant review.",
+            "instruction": "Write a restaurant review based on these notes:\n\n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Name: The Blue Wharf\nLobster great, noisy, service polite, prices good.\n\nReview:"
+        },
+        "output": "I recently visited The Blue Wharf for dinner and had a great experience. The lobster was especially delicious - definitely the highlight of the meal. The only downside was that it was a bit noisy, but the polite service more than made up for it. Prices were also very reasonable, making it a great value overall."
+    },
+    "example_prompt": "Write a restaurant review based on these notes:\n\n\n\nName: The Blue Wharf\nLobster great, noisy, service polite, prices good.\n\nReview:\n"
+}

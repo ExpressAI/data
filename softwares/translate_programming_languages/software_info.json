@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to translate from one programming language to another we can use the comments to specify the source and target languages.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "translate_programming_languages_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "code-davinci-002",
+            "max_tokens": 54,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "###"
+            ]
+        }
+    },
+    "software_configs": {
+        "translate_programming_languages": {
+            "name": "translate_programming_languages",
+            "description": "This promptware is used to translate from one programming language to another we can use the comments to specify the source and target languages.",
+            "instruction": "",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "##### Translate this function from Python into Haskell\n### Python\n    \n    def predict_proba(X: Iterable[str]):\n        return np.array([predict_one_probas(tweet) for tweet in X])\n    \n### Haskell"
+        },
+        "output": "```haskell\npredictProba :: [String] -> [Double]\npredictProba xs = map predictOneProbas xs\n```"
+    },
+    "example_prompt": "\n##### Translate this function from Python into Haskell\n### Python\n    \n    def predict_proba(X: Iterable[str]):\n        return np.array([predict_one_probas(tweet) for tweet in X])\n    \n### Haskell\n"
+}

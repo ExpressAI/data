@@ -1,0 +1,52 @@
+{
+    "description": "This promptware is used to provide a topic and get study notes.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "create_study_notes_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 150,
+            "temperature": 0.3,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "create_study_notes": {
+            "name": "create_study_notes",
+            "description": "This promptware is used to provide a topic and get study notes.",
+            "instruction": "",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "What are 5 key points I should know when studying Ancient Rome?"
+        },
+        "output": "1. The Roman Republic: This was the period of Ancient Rome from 509 BC to 27 BC, when it was ruled by a senate and two consuls.\n\n2. The Roman Empire: This was the period of Ancient Rome from 27 BC to 476 AD, when it was ruled by an emperor.\n\n3. Roman Law: This was the system of laws that governed the Roman Republic and Empire. It was based on the Twelve Tables, a set of laws written in the 5th century BC.\n\n4. Roman Religion: This was the religion of Ancient Rome, which was polytheistic and focused on the worship of gods and goddesses.\n\n5. Roman Architecture: This was the style of architecture"
+    },
+    "example_prompt": "\nWhat are 5 key points I should know when studying Ancient Rome?\n"
+}

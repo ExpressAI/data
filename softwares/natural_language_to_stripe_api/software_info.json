@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to convert natural lanugage to Stripe API.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "natural_language_to_stripe_api_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "code-davinci-002",
+            "max_tokens": 100,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "\"\"\""
+            ]
+        }
+    },
+    "software_configs": {
+        "natural_language_to_stripe_api": {
+            "name": "natural_lanugage_to_stripe_api",
+            "description": "This promptware is used to convert natural lanugage to Stripe API.",
+            "instruction": "\"\"\"\nUtil exposes the following:\n\nutil.stripe() -> authenticates & returns the stripe module; usable as stripe.Charge.create etc\n\"\"\"\n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "import util\n\"\"\"\nCreate a Stripe token using the users credit card: 5555-4444-3333-2222, expiration date 12 / 28, cvc 521\n\"\"\""
+        },
+        "output": "token = stripe.Token.create(\n    card={\n        \"number\": \"5555-4444-3333-2222\",\n        \"exp_month\": 12,\n        \"exp_year\": 28,\n        \"cvc\": \"521\"\n    },\n)"
+    },
+    "example_prompt": "\"\"\"\nUtil exposes the following:\n\nutil.stripe() -> authenticates & returns the stripe module; usable as stripe.Charge.create etc\n\"\"\"\n\n\nimport util\n\"\"\"\nCreate a Stripe token using the users credit card: 5555-4444-3333-2222, expiration date 12 / 28, cvc 521\n\"\"\"\n"
+}

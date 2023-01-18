@@ -6,6 +6,13 @@
     "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
     "license": "apache-2.0",
     "task": "cloze-generative",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
     "module_name": "gaokao_cloze_hint_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -15,11 +22,13 @@
             "max_tokens": 40,
             "temperature": 0.0,
             "top_p": 1,
+            "suffix": "",
             "frequency_penalty": 0.0,
             "presence_penalty": 0.0,
             "logprobs": 1,
             "n": 1,
-            "echo": false
+            "echo": false,
+            "stop": null
         }
     },
     "software_configs": {
@@ -34,5 +43,18 @@
             "prompt_template": "lambda input: f\"{normalize_text(input['context'])}\\n\"",
             "task": "cloze-generative"
         }
-    }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "context": "According to a review of evidence in a medical journal, runners live three years <Q61> than non-runners. You don't have to run fast or for long <Q62> the benefit. You may drink, smoke, be overweight and still reduce your risk of <Q63> early by running.\n\nWhile running regularly can't make you live forever, the review says it <Q64> more effective at lengthening life <Q65> walking, cycling or swimming. Two of the authors of the review also made a study published in 2014 <Q66> showed a mere five to 10 minutes a day of running reduced the risk of heart disease and early deaths from all <Q67>.\nThe best exercise is one that you enjoy and will do. But otherwise it's probably running. To avoid knee pain, you can run on soft surfaces, do exercises to <Q68> your leg muscles, avoid hills and get good running shoes. Running is cheap, easy and it's always <Q69>. If you are time poor, you need run for only half the time to get the same benefits as other sports, so perhaps we should all give <Q70> a try.",
+            "hint": "long",
+            "question_mark": "<Q61>",
+            "answers": [
+                "longer"
+            ]
+        },
+        "output": "longer"
+    },
+    "example_prompt": "There has been a recent trend in the food service industry toward lower fat content and less salt. This trend, which was started by the medical community <Q61> a method of fighting heart disease, has had some unintended side <Q62> such as overweight and heart disease the very thing the medical community was trying to fight. Fat and salt are very important parts of a diet. They are required <Q63> the food that we eat, to recover from injury and for several other bodily functions. When fat and salt <Q64> from food, the food tastes as if is missing something. As <Q65> result, people will eat more food to try to make up for that something missing. Even <Q66>, the amount of fast food that people eat goes up. Fast food <Q67> full of fat and salt; by <Q68> more fast food people will get more salt and fat than they need in their diet. Having enough fat and salt in your meals will reduce the urge to snack between meals and will improve the taste of your food. However, be <Q69> not to go to extremes. Like anything, it is possible to have too much of both, <Q70> is not good for the health.\nWhat should be filled in at the <Q61> position?\nas\n\nThere has been a recent trend in the food service industry toward lower fat content and less salt. This trend, which was started by the medical community as a method of fighting heart disease, has had some unintended side effects such as overweight and heart disease the very thing the medical community was trying to fight. Fat and salt are very important parts of a diet. They are required to process the food that we eat, to recover from injury and for several other bodily functions. When fat and salt <Q64> from food, the food tastes as if is missing something. As <Q65> result, people will eat more food to try to make up for that something missing. Even <Q66>, the amount of fast food that people eat goes up. Fast food <Q67> full of fat and salt; by <Q68> more fast food people will get more salt and fat than they need in their diet. Having enough fat and salt in your meals will reduce the urge to snack between meals and will improve the taste of your food. However, be <Q69> not to go to extremes. Like anything, it is possible to have too much of both, <Q70> is not good for the health.\nWhat should be filled in at the <Q64> position given the hint \"remove\"?\nare removed\nAccording to a review of evidence in a medical journal, runners live three years <Q61> than non-runners. You don't have to run fast or for long <Q62> the benefit. You may drink, smoke, be overweight and still reduce your risk of <Q63> early by running. While running regularly can't make you live forever, the review says it <Q64> more effective at lengthening life <Q65> walking, cycling or swimming. Two of the authors of the review also made a study published in 2014 <Q66> showed a mere five to 10 minutes a day of running reduced the risk of heart disease and early deaths from all <Q67>. The best exercise is one that you enjoy and will do. But otherwise it's probably running. To avoid knee pain, you can run on soft surfaces, do exercises to <Q68> your leg muscles, avoid hills and get good running shoes. Running is cheap, easy and it's always <Q69>. If you are time poor, you need run for only half the time to get the same benefits as other sports, so perhaps we should all give <Q70> a try.\nWhat should be filled in at the <Q61> position? given the hint \"long\"?\n\n"
 }

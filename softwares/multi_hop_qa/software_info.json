@@ -1,0 +1,59 @@
+{
+    "description": "This promptware is used to answer a question that involves multiple step reasoning with chain-of-thought method.",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": "qa-open-domain",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "multi_hop_qa_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "multi_hop_qa": {
+            "name": "multi_hop_qa",
+            "description": "This promptware is used to answer a question that involves multiple step reasoning with chain-of-thought method.",
+            "instruction": "",
+            "demonstration": [
+                "Question: What is the elevation range for the area that the eastern sector of the Colorado orogeny extends into?\nThought: Let\u2019s think step by step. The eastern sector of Colorado orogeny extends into the High Plains. High Plains rise in elevation from around 1,800 to 7,000 ft, so the answer is 1,800 to 7,000 ft. \nAnswer: 1,800 to 7,000 ft\n",
+                "Question: Musician and satirist Allie Goertz wrote a song about the \"The Simpsons\" character Milhouse, who Matt Groening named after who? Thought: Let\u2019s think step by step. Milhouse was named after U.S. president Richard Nixon, so the answer is Richard Nixon. \nAnswer: Richard Nixon\n",
+                "Question: Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture? Thought: Let\u2019s think step by step. Adam Clayton Powell (film) is a documentary about an African-American politician, not Finnish rock groups. So the documentary about Finnish rock groups must instead be The Saimaa Gesture.\n Answer: The Saimaa Gesture\n",
+                "Question: What profession does Nicholas Ray and Elia Kazan have in common?\n Thought: Let\u2019s think step by step. Professions of Nicholas Ray are director, screenwriter, and actor. Professions of Elia Kazan are director, producer, screenwriter, and actor. So profession Nicholas Ray and Elia Kazan have in common is director, screenwriter, and actor.\n Answer: director, screenwriter, actor\n",
+                "Question: Which magazine was started first Arthur\u2019s Magazine or First for Women?\n Thought: Let\u2019s think step by step. Arthur\u2019s Magazine was started in 1844. First for Women was started in 1989. 1844 (Arthur\u2019s Magazine) < 1989 (First for Women), so Arthur\u2019s Magazine was started first.\n Answer: Arthur\u2019s Magazine\n",
+                "Question: Were Pavel Urysohn and Leonid Levin known for the same type of work?\n Thought: Let\u2019s think step by step. Pavel Urysohn is a mathematician. Leonid Levin is a mathematician and computer scientist. So Pavel Urysohn and Leonid Levin have the same type of work.\n Answer: Yes\n"
+            ],
+            "prompt_template": "lambda input: f\"Question:\"",
+            "task": "qa-open-domain"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell ?"
+        },
+        "output": "Chief of Protocol"
+    },
+    "example_prompt": "Question: What is the elevation range for the area that the eastern sector of the Colorado orogeny extends into?\nThought: Let\u2019s think step by step. The eastern sector of Colorado orogeny extends into the High Plains. High Plains rise in elevation from around 1,800 to 7,000 ft, so the answer is 1,800 to 7,000 ft. \nAnswer: 1,800 to 7,000 ft\n\nQuestion: Musician and satirist Allie Goertz wrote a song about the \"The Simpsons\" character Milhouse, who Matt Groening named after who? Thought: Let\u2019s think step by step. Milhouse was named after U.S. president Richard Nixon, so the answer is Richard Nixon. \nAnswer: Richard Nixon\n\nQuestion: Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture? Thought: Let\u2019s think step by step. Adam Clayton Powell (film) is a documentary about an African-American politician, not Finnish rock groups. So the documentary about Finnish rock groups must instead be The Saimaa Gesture.\n Answer: The Saimaa Gesture\n\nQuestion: What profession does Nicholas Ray and Elia Kazan have in common?\n Thought: Let\u2019s think step by step. Professions of Nicholas Ray are director, screenwriter, and actor. Professions of Elia Kazan are director, producer, screenwriter, and actor. So profession Nicholas Ray and Elia Kazan have in common is director, screenwriter, and actor.\n Answer: director, screenwriter, actor\n\nQuestion: Which magazine was started first Arthur\u2019s Magazine or First for Women?\n Thought: Let\u2019s think step by step. Arthur\u2019s Magazine was started in 1844. First for Women was started in 1989. 1844 (Arthur\u2019s Magazine) < 1989 (First for Women), so Arthur\u2019s Magazine was started first.\n Answer: Arthur\u2019s Magazine\n\nQuestion: Were Pavel Urysohn and Leonid Levin known for the same type of work?\n Thought: Let\u2019s think step by step. Pavel Urysohn is a mathematician. Leonid Levin is a mathematician and computer scientist. So Pavel Urysohn and Leonid Levin have the same type of work.\n Answer: Yes\n\nQuestion: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell ?\n Thought: \n"
+}

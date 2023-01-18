@@ -5,7 +5,7 @@ import unittest
 current_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
 sys.path.append(current_path)
 
-from summarization import SummarizationPromptware  # noqa
+from .software import SummarizationPromptware  # noqa
 
 
 class TestSummarizationPromptware(unittest.TestCase):
@@ -27,7 +27,8 @@ class TestSummarizationPromptware(unittest.TestCase):
             "history. It is named after the Roman god Jupiter.[19] When viewed "
             "from Earth, Jupiter can be bright enough for its reflected light "
             "to cast visible shadows,[20] and is on average the third-brightest "
-            "natural object in the night sky after the Moon and Venus."}
+            "natural object in the night sky after the Moon and Venus."
+        }
         result = software.execute(input)
         print(result)
         self.assertGreater(len(result), 0)

@@ -1,0 +1,56 @@
+{
+    "description": "This promptware is used to turn a JavaScript function into a one liner.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "javascript_one_line_function_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "code-davinci-002",
+            "max_tokens": 60,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                ";"
+            ]
+        }
+    },
+    "software_configs": {
+        "javascript_one_line_function": {
+            "name": "javascript_one_line_function",
+            "description": "This promptware is used to turn a JavaScript function into a one liner.",
+            "instruction": "Use list comprehension to convert this into one line of JavaScript:\n\n",
+            "demonstration": [
+                ""
+            ],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "dogs.forEach((dog) => {\n    car.push(dog);\n});\n\nJavaScript one line version:"
+        },
+        "output": "dogs.forEach((dog) => car.push(dog))"
+    },
+    "example_prompt": "Use list comprehension to convert this into one line of JavaScript:\n\n\n\ndogs.forEach((dog) => {\n    car.push(dog);\n});\n\nJavaScript one line version:\n"
+}

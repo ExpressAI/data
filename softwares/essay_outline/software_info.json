@@ -1,0 +1,52 @@
+{
+    "description": "This promptware is used to generate an outline for a research topic.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "essay_outline_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 150,
+            "temperature": 0.3,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "essay_outline": {
+            "name": "essay_outline",
+            "description": "This promptware is used to generate an outline for a research topic.",
+            "instruction": "",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Create an outline for an essay about Nikola Tesla and his contributions to technology:"
+        },
+        "output": "I. Introduction\nA. Definition of Nikola Tesla\nB. Overview of Tesla's life and accomplishments\n\nII. Early Life and Education\nA. Tesla's birthplace and family\nB. Tesla's education and early career\n\nIII. Contributions to Technology\nA. Alternating current\nB. Radio and remote control\nC. Robotics and artificial intelligence\nD. X-rays and lasers\n\nIV. Legacy of Tesla\nA. Impact on modern technology\nB. Recognition of Tesla's work\n\n V. Conclusion\nA. Summary of Tesla's life and accomplishments\nB. Reflection on Tesla's legacy"
+    },
+    "example_prompt": "\nCreate an outline for an essay about Nikola Tesla and his contributions to technology:\n"
+}

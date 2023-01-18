@@ -6,6 +6,13 @@
     "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
     "license": "apache-2.0",
     "task": "antonym-identification",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
     "module_name": "antonyms_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -15,11 +22,13 @@
             "max_tokens": 64,
             "temperature": 0,
             "top_p": 1,
+            "suffix": "",
             "frequency_penalty": 0.0,
             "presence_penalty": 0.0,
             "logprobs": 1,
             "n": 1,
-            "echo": false
+            "echo": false,
+            "stop": null
         }
     },
     "software_configs": {
@@ -37,5 +46,13 @@
                 "conditional-generation"
             ]
         }
-    }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "correct"
+        },
+        "output": "incorrect"
+    },
+    "example_prompt": "take the inputted word and pair it with its antonym\nInformed\nUninformed\n\n.\nshout\nwhisper\n\n\nharmony\ndissonance\n\n\ncorrect\n"
 }

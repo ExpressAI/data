@@ -1,0 +1,54 @@
+{
+    "description": "This promptware is used to make a list of science fiction books and stop when it reaches #10.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": "conditional-generation",
+    "research_tasks": null,
+    "application_categories": null,
+    "application_subcategories": null,
+    "original_platform": null,
+    "design_pattern": null,
+    "source_language": null,
+    "target_language": null,
+    "module_name": "science_fiction_book_list_maker_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 200,
+            "temperature": 0.5,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.52,
+            "presence_penalty": 0.5,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "11."
+            ]
+        }
+    },
+    "software_configs": {
+        "science_fiction_book_list_maker": {
+            "name": "science_fiction_book_list_maker",
+            "description": "This promptware is used to make a list of science fiction books and stop when it reaches #10.",
+            "instruction": "",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "List 10 science fiction books:"
+        },
+        "output": "1. 1984 by George Orwell\n2. Dune by Frank Herbert\n3. The Hitchhiker's Guide to the Galaxy by Douglas Adams\n4. The War of the Worlds by H.G. Wells\n5. Brave New World by Aldous Huxley\n6. Ender's Game by Orson Scott Card\n7. The Martian Chronicles by Ray Bradbury\n8. Do Androids Dream of Electric Sheep? By Philip K Dick \n9. Snow Crash by Neal Stephenson \n10. Neuromancer by William Gibson"
+    },
+    "example_prompt": "\nList 10 science fiction books:\n"
+}

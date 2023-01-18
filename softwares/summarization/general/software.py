@@ -57,8 +57,7 @@ class SummarizationPromptware(Promptware):
     def execute(self, input):
         openai_kernel1 = self.kernel_configs["openai1"].to_kernel()
         if self.config_name == "default" or self.config_name == "general":
-            code = self.get_code(input,
-                                 self.software_configs["summarization_general"])
+            code = self.get_code(input, self.software_configs["summarization_general"])
             return self.normalize_output(openai_kernel1.execute(code)["text"])
         else:
             raise ValueError("Unknown question answer type: {self.config_name}")
@@ -92,7 +91,7 @@ class SummarizationPromptware(Promptware):
                     "Venus."
                 },
                 "output": "Jupiter is a gas giant planet located fifth "
-                          "from the Sun, "
+                "from the Sun, "
                 "and is the largest planet in the solar system. It has a "
                 "mass one thousandth that of the sun and is two and a half "
                 "times that of all the other planets in the solar system "
