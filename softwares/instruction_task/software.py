@@ -106,9 +106,9 @@ class InstructionTaskPromptware(Promptware):
 
     def postprocess(self, text: str) -> str:
         if ":" in text:
-            return text.split(":")[1].strip().replace(".", "").lower()
+            return text.split(":")[1].replace("-", "").replace(".", "").strip().lower()
         else:
-            return text.strip().replace(".", "").lower()
+            return text.replace("-", "").replace(".", "").strip().lower()
 
     def execute(self, input):
         openai.api_key = promptware.os_api_key
