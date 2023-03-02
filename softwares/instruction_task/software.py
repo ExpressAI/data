@@ -25,39 +25,37 @@ INSTRUCTION = (
     'should contain "code":'
 )
 
-PROMPT = (
-    INSTRUCTION
-    + """
-- text writing based on a prompt
-- explain the reason
-- compare different objects
-- specialized educational dialogs
-- open-ended conversation
-- text classification
-- ordering
-- sentiment analysis
-- code language classification
-- code generation
-- code implementation
-- data generation
-- advice-giving
-- information enumeration
-- recommendation
-- how to question
-- text rewriting
-- code rewriting
-- information extraction
-- text summarization
-- code explanation
-- text explanation
-- translation
-- value judgment
-- hack identification
-- Internet search
-- new information
+categories = [
+    "text writing based on a prompt",
+    "explain the reason",
+    "compare different objects",
+    "specialized educational dialogs",
+    "open-ended conversation",
+    "text classification",
+    "ordering",
+    "sentiment analysis",
+    "code language classification",
+    "code generation",
+    "code implementation",
+    "data generation",
+    "advice-giving",
+    "information enumeration",
+    "recommendation",
+    "how to question",
+    "text rewriting",
+    "code rewriting",
+    "information extraction",
+    "text summarization",
+    "code explanation",
+    "text explanation",
+    "translation",
+    "value judgment",
+    "hack identification",
+    "Internet search",
+    "new information",
+]
 
-"""
-)
+PROMPT = INSTRUCTION + "\n" + "\n".join([f"- {c}" for c in categories])
 
 print(PROMPT)
 
@@ -106,6 +104,12 @@ class InstructionTaskPromptware(Promptware):
     def _example(self):
         return {"input": {"text": "I love this movie."}, "output": "positive"}
 
+    def postprocess(self, text: str) -> str:
+        if ":" in text:
+            return text.split(":")[1].strip().replace(".", "").lower()
+        else:
+            return text.strip().replace(".", "").lower()
+
     def execute(self, input):
         openai.api_key = promptware.os_api_key
 
@@ -114,9 +118,8 @@ class InstructionTaskPromptware(Promptware):
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo", messages=[{"role": "user", "content": code}]
         )
-
         output = completion["choices"][0]["message"]["content"]
 
-        result = self.normalize_output(output.lower())
+        result = self.postprocess(self.normalize_output(output))
 
         return result
