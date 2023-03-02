@@ -51,7 +51,8 @@ class InstructionTypePromptware(Promptware):
                 name="extract_verb_object",
                 description="extract_verb_object",
                 instruction="Extract the verb-object structure phrase which is no"
-                " more than 10 words from this sentence:",
+                " more than 10 words from this sentence and the first word is a verb"
+                " with a capital letter:",
                 demonstration=[],
                 prompt_template=lambda input: f"{input['text']}",
                 task=TaskType.text_classification,
@@ -59,8 +60,8 @@ class InstructionTypePromptware(Promptware):
             "condense": PromptConfig(
                 name="condense",
                 description="condense",
-                instruction="Given a question asked by user, summarize user's intention"
-                " starting with a verb with 3 to 10 words:",
+                instruction="Given a question asked by user, sum up user's intention"
+                " starting with a verb using less than 10 words:",
                 demonstration=[],
                 prompt_template=lambda input: f"{input['text']}",
                 task=TaskType.text_classification,
