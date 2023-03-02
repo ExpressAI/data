@@ -56,34 +56,25 @@ class SummarizationPromptware(Promptware):
 
     def execute(self, input):
         openai_kernel2 = self.kernel_configs["openai2"].to_kernel()
-        if self.config_name == "meeting_notes":
-            code = self.get_code(
-                input, self.software_configs["summarization_meeting_notes"]
-            )
-            return self.normalize_output(openai_kernel2.execute(code)["text"])
-        else:
-            raise ValueError("Unknown question answer type: {self.config_name}")
+        code = self.get_code(
+            input, self.software_configs["summarization_meeting_notes"]
+        )
+        return self.normalize_output(openai_kernel2.execute(code)["text"])
 
     def _software_configs(self):
-        if self.config_name == "meeting_notes":
-            return {"summarization_meeting_notes": summarization_meeting_notes}
-        else:
-            raise ValueError("Unknown question answer type: {self.config_name}")
+        return {"summarization_meeting_notes": summarization_meeting_notes}
 
     def _example(self):
-        if self.config_name == "meeting_notes":
-            return {
-                "input": {
-                    "text": "Tom: Profits up 50%\n"
-                    "Jane: New servers are online\n"
-                    "Kjel: Need more time to fix software\n"
-                    "Jane: Happy to help\n"
-                    "Parkman: Beta testing almost done\n"
-                },
-                "output": "Tom announced that profits were up 50%. Jane mentioned "
-                "that new servers were online. Kjel mentioned that they "
-                "needed more time to fix the software. Jane offered to "
-                "help. Parkman announced that beta testing was almost done.",
-            }
-        else:
-            raise ValueError("Unknown question answer type: {self.config_name}")
+        return {
+            "input": {
+                "text": "Tom: Profits up 50%\n"
+                "Jane: New servers are online\n"
+                "Kjel: Need more time to fix software\n"
+                "Jane: Happy to help\n"
+                "Parkman: Beta testing almost done\n"
+            },
+            "output": "Tom announced that profits were up 50%. Jane mentioned "
+            "that new servers were online. Kjel mentioned that they "
+            "needed more time to fix the software. Jane offered to "
+            "help. Parkman announced that beta testing was almost done.",
+        }

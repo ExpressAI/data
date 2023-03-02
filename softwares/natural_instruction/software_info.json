@@ -1,15 +1,28 @@
 {
-    "description": "Summarize long text to short text.",
+    "description": "Manipulate input based on a given instruction",
     "creator": "OpenAI",
-    "homepage": "https://beta.openai.com/examples/",
+    "homepage": "https://instructions.apps.allenai.org/",
     "reference": "",
-    "codebase_url": "https://beta.openai.com/examples/",
-    "license": "no-license",
-    "task": "qa-open-domain",
-    "module_name": "summarization_promptware",
-    "config_name": "default",
+    "codebase_url": "_REFERENCE",
+    "license": "apache-2.0",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "rewriting"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "natural_instruction_promptware",
+    "config_name": "air_dialogue_sentence_generation",
     "kernel_configs": {
-        "openai1": {
+        "general": {
             "platform": "openai",
             "model_name": "text-curie-001",
             "max_tokens": 200,
@@ -20,30 +33,33 @@
             "presence_penalty": 0.0,
             "logprobs": 1,
             "n": 1,
-            "echo": false
-        },
-        "openai2": {
-            "platform": "openai",
-            "model_name": "text-curie-001",
-            "max_tokens": 100,
-            "temperature": 0,
-            "top_p": 1,
-            "suffix": "",
-            "frequency_penalty": 0,
-            "presence_penalty": 0,
-            "logprobs": 1,
-            "n": 1,
-            "echo": false
+            "echo": false,
+            "stop": null
         }
     },
     "software_configs": {
-        "summarization_general": {
-            "name": "summarization_general",
-            "description": "Translates difficult text into simpler concepts.",
-            "instruction": "Summarize the following text into simpler concepts:",
+        "air_dialogue_sentence_generation": {
+            "name": "air_dialogue_sentence_generation",
+            "description": "air dialogue sentence generation (zero-shot)",
+            "instruction": "In this task, you're given a dialogue between a customer and a flight booking agent with a gap in the conversation. Your job is to find the answer of the previous dialogue. Avoid using irrelevant extra information while creating the answer. The answer should be relevant to the question before the blank. If you fill the blank with a question, it should have an answer from the agent in the given dialogue. Fill the gap marked with underline.",
             "demonstration": [],
-            "prompt_template": "lambda input: f\"{input['text']}\\n\",",
-            "task": "summarization"
+            "prompt_template": "lambda input: f\"Input:{input['inputs']}\\nOutput:\",",
+            "task": "conditional-generation"
         }
-    }
+    },
+    "dataset_configs": {
+        "air_dialogue_sentence_generation": {
+            "dataset_name": "natural_instruction",
+            "sub_dataset": "air_dialogue_sentence_generation",
+            "split": "test",
+            "n_samples": 3
+        }
+    },
+    "example": {
+        "input": {
+            "inputs": "I will go to New York to see a great movie on Sunday"
+        },
+        "output": "_I will go to New York to see a great movie on Sunday._\n\n_I will go to New York to see a new movie._"
+    },
+    "example_prompt": "In this task, you're given a dialogue between a customer and a flight booking agent with a gap in the conversation. Your job is to find the answer of the previous dialogue. Avoid using irrelevant extra information while creating the answer. The answer should be relevant to the question before the blank. If you fill the blank with a question, it should have an answer from the agent in the given dialogue. Fill the gap marked with underline.\n\nInput:I will go to New York to see a great movie on Sunday\nOutput:\n"
 }

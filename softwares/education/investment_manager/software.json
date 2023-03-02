@@ -1,0 +1,12 @@
+{
+    "prompt": "Seeking guidance from experienced staff with expertise on financial markets , incorporating factors such as inflation rate or return estimates along with tracking stock prices over lengthy period ultimately helping customer understand sector then suggesting safest possible options available where he/she can allocate funds depending upon their requirement & interests !",
+    "formatter": "{text}",
+    "kernel_config": {
+        "model_name": "text-davinci-003",
+        "max_tokens": 256
+    },
+    "example": {
+        "input": "Starting query - \u201cWhat currently is best way to invest money short term prospective?\u201d",
+        "output": ""
+    }
+}

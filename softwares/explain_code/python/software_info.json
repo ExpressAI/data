@@ -1,0 +1,58 @@
+{
+    "description": "Explain a complicated piece of code.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/default-explain-code",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/default-explain-code",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "explanation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "python",
+    "target_language": "en",
+    "module_name": "explain_code_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai2": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "explain_code_python": {
+            "name": "explain_code_python",
+            "description": "Explain a piece of Python code in human understandable language.",
+            "instruction": "A table summarizing the following text.",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['code']}\\n# Explanation of\"",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "code": "class Log:\n                def __init__(self, path):\n                    dirname = os.path.dirname(path)\n                    os.makedirs(dirname, exist_ok=True)\n                    f = open(path, \"a+\")\n                    # Check that the file is newline-terminated\n                    size = os.path.getsize(path)\n                    if size > 0:\n                        f.seek(size - 1)\n                        end = f.read(1)\n                        if end != \"\n\":\n                            f.write(\"\n\")\n                    self.f = f\n                    self.path = path\n                def log(self, event):\n                    event[\"_event_id\"] = str(uuid.uuid4())\n                    json.dump(event, self.f)\n                    self.f.write(\"\n\")\n                def state(self):\n                    state = {\"complete\": set(), \"last\": None}\n                    for line in open(self.path):\n                        event = json.loads(line)\n                        if event[\"type\"] == \"submit\" and event[\"success\"]:\n                            state[\"complete\"].add(event[\"id\"])\n                            state[\"last\"] = event\n                    return state"
+        },
+        "output": "The code first creates a Log object, specifying the path to a file. If the file does not exist, the code creates the file and sets the path variable to the path.\n\nNext, the code checks to see if the file is newline-terminated. If it is not, the code reads"
+    },
+    "example_prompt": "A table summarizing the following text.\n\nclass Log:\n                def __init__(self, path):\n                    dirname = os.path.dirname(path)\n                    os.makedirs(dirname, exist_ok=True)\n                    f = open(path, \"a+\")\n                    # Check that the file is newline-terminated\n                    size = os.path.getsize(path)\n                    if size > 0:\n                        f.seek(size - 1)\n                        end = f.read(1)\n                        if end != \"\n\":\n                            f.write(\"\n\")\n                    self.f = f\n                    self.path = path\n                def log(self, event):\n                    event[\"_event_id\"] = str(uuid.uuid4())\n                    json.dump(event, self.f)\n                    self.f.write(\"\n\")\n                def state(self):\n                    state = {\"complete\": set(), \"last\": None}\n                    for line in open(self.path):\n                        event = json.loads(line)\n                        if event[\"type\"] == \"submit\" and event[\"success\"]:\n                            state[\"complete\"].add(event[\"id\"])\n                            state[\"last\"] = event\n                    return state\n# Explanation of what the code does\n#\n"
+}

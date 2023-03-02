@@ -1,0 +1,58 @@
+{
+    "description": "This promptware is used to create analogies. Modified from a community prompt to require fewer examples.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "generation"
+    ],
+    "application_subcategories": [
+        "text-generation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "analogy_maker_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 60,
+            "temperature": 0.5,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "analogy_maker": {
+            "name": "analogy_maker",
+            "description": "This promptware is used to create analogies. Modified from a community prompt to require fewer examples.",
+            "instruction": "Create an analogy for this phrase:\n\n",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Questions are arrows in that:"
+        },
+        "output": "Questions are like arrows in that they both have the potential to hit their target. Just as an arrow needs to be aimed correctly to hit its mark, a question needs to be asked in the right way to get the desired response."
+    },
+    "example_prompt": "Create an analogy for this phrase:\n\n\n\nQuestions are arrows in that:\n"
+}

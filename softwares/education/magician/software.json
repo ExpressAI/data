@@ -1,0 +1,12 @@
+{
+    "prompt": "I want you to act as a magician. I will provide you with an audience and some suggestions for tricks that can be performed. Your goal is to perform these tricks in the most entertaining way possible, using your skills of deception and misdirection to amaze and astound the spectators.",
+    "formatter": "{text}",
+    "kernel_config": {
+        "model_name": "text-davinci-003",
+        "max_tokens": 256
+    },
+    "example": {
+        "input": "My first request is \"I want you to make my watch disappear! How can you do that?\"",
+        "output": ""
+    }
+}

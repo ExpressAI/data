@@ -1,0 +1,58 @@
+{
+    "description": "This promptware is used to create simple SQL queries.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "generation"
+    ],
+    "application_subcategories": [
+        "code-generation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "sql",
+    "module_name": "sql_request_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 60,
+            "temperature": 0.3,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "sql_request": {
+            "name": "sql_request",
+            "description": "This promptware is used to create simple SQL queries.",
+            "instruction": "",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Create a SQL request to find all users who live in California and have over 1000 credits:"
+        },
+        "output": "SELECT * FROM users\nWHERE state = 'California'\nAND credits > 1000;"
+    },
+    "example_prompt": "\nCreate a SQL request to find all users who live in California and have over 1000 credits:\n"
+}

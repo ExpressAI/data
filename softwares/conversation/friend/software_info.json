@@ -1,0 +1,60 @@
+{
+    "description": "Open ended conversation with an AI assistant.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "qa-open-domain"
+    ],
+    "application_categories": [
+        "conversation"
+    ],
+    "application_subcategories": [
+        "open-ended-conversation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "conversation_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai2": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 60,
+            "temperature": 0.5,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.5,
+            "presence_penalty": 0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "conversation_friend": {
+            "name": "conversation_friend",
+            "description": "Emulate a text message conversation.",
+            "instruction": "",
+            "demonstration": [
+                "You: What have you been up to?\nFriend: Watching old movies.\nYou: Did you watch anything interesting?\nFriend: Yes, I watched The Omen and Troy."
+            ],
+            "prompt_template": "lambda input: f\"You: {input['text']}\\nFriend:\",",
+            "task": "qa-open-domain"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "I'd like to cancel my subscription."
+        },
+        "output": "No problem!"
+    },
+    "example_prompt": "You: What have you been up to?\nFriend: Watching old movies.\nYou: Did you watch anything interesting?\nFriend: Yes, I watched The Omen and Troy.\nYou: I'd like to cancel my subscription.\nFriend:\n"
+}

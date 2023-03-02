@@ -1,0 +1,64 @@
+{
+    "description": "This promptware is used to convert movie titles into emoji.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "generation"
+    ],
+    "application_subcategories": [
+        "data-generation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "emoji",
+    "module_name": "movie_to_emoji_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-003",
+            "max_tokens": 60,
+            "temperature": 0.8,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "\n"
+            ]
+        }
+    },
+    "software_configs": {
+        "movie_to_emoji": {
+            "name": "movie_to_emoji",
+            "description": "This promptware is used to convert movie titles into emoji.",
+            "instruction": "Convert movie titles into emoji.\n\n",
+            "demonstration": [
+                "Back to the Future: \ud83d\udc68\ud83d\udc74\ud83d\ude97\ud83d\udd52 \n",
+                "Batman: \ud83e\udd35\ud83e\udd87 \n",
+                "Transformers: \ud83d\ude97\ud83e\udd16 \n"
+            ],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Star Wars:"
+        },
+        "output": "\u2b50\ufe0f\ud83c\udf0c"
+    },
+    "example_prompt": "Convert movie titles into emoji.\n\n\nBack to the Future: \ud83d\udc68\ud83d\udc74\ud83d\ude97\ud83d\udd52 \n\nBatman: \ud83e\udd35\ud83e\udd87 \n\nTransformers: \ud83d\ude97\ud83e\udd16 \n\nStar Wars:\n"
+}

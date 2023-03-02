@@ -1,0 +1,62 @@
+{
+    "description": "This promptware is used to create a message-style chatbot that can answer questions about using JavaScript. It uses a few examples to get the conversation started.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "conversation"
+    ],
+    "application_subcategories": [
+        "specialized-educational-dialogs"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "java_script_helper_chatbot_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "code-davinci-002",
+            "max_tokens": 60,
+            "temperature": 0,
+            "top_p": 1.0,
+            "suffix": "",
+            "frequency_penalty": 0.5,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": [
+                "You:"
+            ]
+        }
+    },
+    "software_configs": {
+        "javascript_helper_chatbot": {
+            "name": "javaScript_helper_chatbot",
+            "description": "This promptware is used to create a message-style chatbot that can answer questions about using JavaScript. It uses a few examples to get the conversation started.",
+            "instruction": "",
+            "demonstration": [
+                "You: How do I combine arrays?\nJavaScript chatbot: You can use the concat() method.\n"
+            ],
+            "prompt_template": "lambda input: f\"{input['text']}\",",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "You: How do you make an alert appear after 10 seconds?\nJavaScript chatbot"
+        },
+        "output": "You can use the setTimeout() method."
+    },
+    "example_prompt": "You: How do I combine arrays?\nJavaScript chatbot: You can use the concat() method.\n\nYou: How do you make an alert appear after 10 seconds?\nJavaScript chatbot\n"
+}

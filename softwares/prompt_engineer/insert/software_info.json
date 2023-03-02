@@ -1,0 +1,70 @@
+{
+    "description": "GPT3 is a good prompt engineer and it can help us to generate an instruction based on input and output pairs.",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "generation"
+    ],
+    "application_subcategories": [
+        "text-generation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "prompt_engineer_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-davinci-002",
+            "max_tokens": 256,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "prompt_engineer_insert": {
+            "name": "prompt_engineer_insert",
+            "description": "This promptware is used to generate an instruction based on given input pairs",
+            "instruction": "GPT3 is a good prompt engineer and it can help us to generate instruction based on input and output pairs.\n",
+            "demonstration": [
+                "I instructed my friend to find the sentiment of the movie review. The friend read the instruction and wrote an output for every one of the inputs. Here are the input-output pairs:\n\nInput: I love this movie.\nOutput: positive\n\nInput: The movie is boring.\nOutput: negative\n\nInput: I love this book.\nOutput: positive\n"
+            ],
+            "prompt_template": "lambda input: f\"I instructed my friend to [INSERT]. \"",
+            "task": "conditional-generation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": [
+            [
+                "aperiodic",
+                "periodic"
+            ],
+            [
+                "unsent",
+                "sent"
+            ]
+        ],
+        "output": {
+            "text": "The sentiment of the movie review.",
+            "score": -0.25450913903571426
+        }
+    },
+    "example_prompt": "GPT3 is a good prompt engineer and it can help us to generate instruction based on input and output pairs.\n\nI instructed my friend to find the sentiment of the movie review. The friend read the instruction and wrote an output for every one of the inputs. Here are the input-output pairs:\n\nInput: I love this movie.\nOutput: positive\n\nInput: The movie is boring.\nOutput: negative\n\nInput: I love this book.\nOutput: positive\n\nI instructed my friend to [INSERT]. The friend read the instruction and wrote an output for every one of the inputs. Here are the input-output pairs:\n\nInput:aperiodic\nOutput:periodic\n\nInput:unsent\nOutput:sent\n\n\n"
+}

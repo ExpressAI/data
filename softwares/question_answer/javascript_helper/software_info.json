@@ -1,0 +1,61 @@
+{
+    "description": "Answer questions based on existing knowledge.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "qa-open-domain"
+    ],
+    "application_categories": [
+        "conversation"
+    ],
+    "application_subcategories": [
+        "question-answering"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "question_answer_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai3": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 60,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.5,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "question_answer_java_script_helper": {
+            "name": "question_answer_java_script_helper",
+            "description": "This is a message-style chatbot that can answer questions about using JavaScript. It uses a few examples to get the conversation started.",
+            "instruction": "",
+            "demonstration": [
+                "You: How do I combine arrays?\nJavaScript chatbot: You can use the concat() method.",
+                "You: How do you make an alert appear after 10 seconds?\nJavaScript chatbot: You can use the setTimeout() method."
+            ],
+            "prompt_template": "lambda input: f\"You: {input['question']}\\nJavaScript chatbot:\",",
+            "task": "qa-open-domain"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "question": "Where is the Valley of Kings?"
+        },
+        "output": "The Valley of Kings is located in Egypt."
+    },
+    "example_prompt": "You: How do I combine arrays?\nJavaScript chatbot: You can use the concat() method.\nYou: How do you make an alert appear after 10 seconds?\nJavaScript chatbot: You can use the setTimeout() method.\nYou: Where is the Valley of Kings?\nJavaScript chatbot:\n"
+}

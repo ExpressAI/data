@@ -5,14 +5,20 @@
     "reference": "",
     "codebase_url": "https://beta.openai.com/examples/",
     "license": "no-license",
-    "task": "conditional-generation",
-    "research_tasks": null,
-    "application_categories": null,
-    "application_subcategories": null,
-    "original_platform": null,
-    "design_pattern": null,
-    "source_language": null,
-    "target_language": null,
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "brainstorming"
+    ],
+    "application_subcategories": [
+        "advice-giving"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
     "module_name": "vr_fitness_idea_generatore_promptware",
     "config_name": "default",
     "kernel_configs": {

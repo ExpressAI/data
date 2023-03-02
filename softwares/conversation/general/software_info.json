@@ -1,0 +1,60 @@
+{
+    "description": "Open ended conversation with an AI assistant.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "qa-open-domain"
+    ],
+    "application_categories": [
+        "conversation"
+    ],
+    "application_subcategories": [
+        "open-ended-conversation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "conversation_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai1": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 150,
+            "temperature": 0.9,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.6,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "conversation_general": {
+            "name": "conversation_general",
+            "description": "Open ended conversation with an AI assistant.",
+            "instruction": "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.",
+            "demonstration": [
+                "Human: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\n"
+            ],
+            "prompt_template": "lambda input: f\"Human: {input['text']}\\nAI:\",",
+            "task": "qa-open-domain"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "I'd like to cancel my subscription."
+        },
+        "output": "Certainly, cancel your subscription anytime you like. We hope you enjoy using our services!"
+    },
+    "example_prompt": "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\n\nHuman: I'd like to cancel my subscription.\nAI:\n"
+}

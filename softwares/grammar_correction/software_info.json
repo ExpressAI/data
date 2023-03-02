@@ -5,7 +5,20 @@
     "reference": "",
     "codebase_url": "https://beta.openai.com/examples/default-grammar",
     "license": "no-license",
-    "task": "conditional-generation",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "rewriting"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
     "module_name": "grammar_correction_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -20,7 +33,8 @@
             "presence_penalty": 0.0,
             "logprobs": 1,
             "n": 1,
-            "echo": false
+            "echo": false,
+            "stop": null
         }
     },
     "software_configs": {
@@ -32,5 +46,13 @@
             "prompt_template": "lambda input: f\"{input['text']}\\n\",",
             "task": "conditional-generation"
         }
-    }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "She no went to the market."
+        },
+        "output": "She didn't go to the market."
+    },
+    "example_prompt": "Correct this to standard English:\n\nShe no went to the market.\n\n"
 }

@@ -1,0 +1,12 @@
+{
+    "prompt": "I want you to act as an essay writer. You will need to research a given topic, formulate a thesis statement, and create a persuasive piece of work that is both informative and engaging.",
+    "formatter": "{text}",
+    "kernel_config": {
+        "model_name": "text-davinci-003",
+        "max_tokens": 256
+    },
+    "example": {
+        "input": "My first suggestion request is \u201cI need help writing a persuasive essay about the importance of reducing plastic waste in our environment\u201d.",
+        "output": ""
+    }
+}

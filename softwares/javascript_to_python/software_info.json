@@ -5,14 +5,20 @@
     "reference": "",
     "codebase_url": "https://beta.openai.com/examples/",
     "license": "no-license",
-    "task": "conditional-generation",
-    "research_tasks": null,
-    "application_categories": null,
-    "application_subcategories": null,
-    "original_platform": null,
-    "design_pattern": null,
-    "source_language": null,
-    "target_language": null,
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "translation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "javascript",
+    "target_language": "python",
     "module_name": "java_script_to_python_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -33,7 +39,7 @@
     },
     "software_configs": {
         "javascript_to_python": {
-            "name": "javaScript_to_python",
+            "name": "javascript_to_python",
             "description": "This promptware is used to create simple SQL queries.",
             "instruction": "",
             "demonstration": [],

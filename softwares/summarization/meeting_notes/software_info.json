@@ -1,0 +1,58 @@
+{
+    "description": "Summarize long text to short text for meeting notes",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "summarization"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "summarization"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "summarization_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai2": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 100,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "summarization_meeting_notes": {
+            "name": "summarization_meeting_notes",
+            "description": "Turn meeting notes into a summary.",
+            "instruction": "Convert my short hand into a first-hand account of the meeting: ",
+            "demonstration": [],
+            "prompt_template": "lambda input: f\"{input['text']}\\n\",",
+            "task": "summarization"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "Tom: Profits up 50%\nJane: New servers are online\nKjel: Need more time to fix software\nJane: Happy to help\nParkman: Beta testing almost done\n"
+        },
+        "output": "Tom announced that profits were up 50%. Jane mentioned that new servers were online. Kjel mentioned that they needed more time to fix the software. Jane offered to help. Parkman announced that beta testing was almost done."
+    },
+    "example_prompt": "Convert my short hand into a first-hand account of the meeting: \n\nTom: Profits up 50%\nJane: New servers are online\nKjel: Need more time to fix software\nJane: Happy to help\nParkman: Beta testing almost done\n\n\n"
+}

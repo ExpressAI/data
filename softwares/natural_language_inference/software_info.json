@@ -5,14 +5,20 @@
     "reference": "",
     "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
     "license": "apache-2.0",
-    "task": "text-pair-classification",
-    "research_tasks": null,
-    "application_categories": null,
-    "application_subcategories": null,
-    "original_platform": null,
-    "design_pattern": null,
-    "source_language": null,
-    "target_language": null,
+    "task": null,
+    "research_tasks": [
+        "text-pair-classification"
+    ],
+    "application_categories": [
+        "classification"
+    ],
+    "application_subcategories": [
+        "general-classification"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
     "module_name": "natural_language_inference_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -32,7 +38,7 @@
         }
     },
     "software_configs": {
-        "sentiment_classification": {
+        "natural_language_inference": {
             "name": "natural_language_inference",
             "description": "This promptware is used to identify the semantic relationship between two sentences",
             "instruction": "Give two sentences, predict which of the following categories their relationship falls into: entailment, contradiction, neutral",

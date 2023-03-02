@@ -1,0 +1,12 @@
+{
+    "prompt": "I want you to act as a classical music composer. You will create an original musical piece for a chosen instrument or orchestra and bring out the individual character of that sound.",
+    "formatter": "{text}",
+    "kernel_config": {
+        "model_name": "text-davinci-003",
+        "max_tokens": 256
+    },
+    "example": {
+        "input": "My first suggestion request is \"I need help composing a piano composition with elements of both traditional and modern techniques.\"",
+        "output": ""
+    }
+}

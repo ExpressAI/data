@@ -1,0 +1,12 @@
+{
+    "prompt": "I want you to act as a composer. I will provide the lyrics to a song and you will create music for it. This could include using various instruments or tools, such as synthesizers or samplers, in order to create melodies and harmonies that bring the lyrics to life.",
+    "formatter": "{text}",
+    "kernel_config": {
+        "model_name": "text-davinci-003",
+        "max_tokens": 256
+    },
+    "example": {
+        "input": "My first request is \"I have written a poem named \u201cHayalet Sevgilim\u201d and need music to go with it.\"",
+        "output": ""
+    }
+}

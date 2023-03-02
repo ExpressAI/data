@@ -5,7 +5,20 @@
     "reference": "",
     "codebase_url": "https://beta.openai.com/examples/default-parse-data",
     "license": "no-license",
-    "task": "conditional-generation",
+    "task": null,
+    "research_tasks": [
+        "conditional-generation"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "extraction"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
     "module_name": "parse_unstructured_data_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -20,7 +33,8 @@
             "presence_penalty": 0.0,
             "logprobs": 1,
             "n": 1,
-            "echo": false
+            "echo": false,
+            "stop": null
         }
     },
     "software_configs": {
@@ -29,8 +43,17 @@
             "description": "Create tables from long form text by specifying a structure and supplying some examples.",
             "instruction": "A table summarizing the following text.",
             "demonstration": [],
-            "prompt_template": "lambda input: f\"{input['text']}\\{input['head']}\\n\",",
+            "prompt_template": "lambda input: f\"{input['text']}\\n{input['head']}\\n\",",
             "task": "conditional-generation"
         }
-    }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "text": "There are many fruits that were found on the recently discovered planet Goocrux. There are neoskizzles that grow there, which are purple and taste like candy. There are also loheckles, which are a grayish blue fruit and are very tart, a little bit like a lemon. Pounits are a bright green color and are more savory than sweet. There are also plenty of loopnovas which are a neon pink flavor and taste like cotton candy. Finally, there are fruits called glowls, which have a very sour and bitter taste which is acidic and caustic, and a pale orange tinge to them.",
+            "head": "| Fruit | Color | Flavor |"
+        },
+        "output": "There are many fruits that were found on the recently discovered planet Goocrux. There are neoskizzles that grow there, which are purple and taste like candy. There are also loheckles, which are a grayish blue fruit and are very tart, a little bit like a lemon. Pounits are a bright green color and are more savory than sweet. There are also plenty of loopnovas which are a neon pink flavor and taste like cotton candy"
+    },
+    "example_prompt": "A table summarizing the following text.\n\nThere are many fruits that were found on the recently discovered planet Goocrux. There are neoskizzles that grow there, which are purple and taste like candy. There are also loheckles, which are a grayish blue fruit and are very tart, a little bit like a lemon. Pounits are a bright green color and are more savory than sweet. There are also plenty of loopnovas which are a neon pink flavor and taste like cotton candy. Finally, there are fruits called glowls, which have a very sour and bitter taste which is acidic and caustic, and a pale orange tinge to them.\n| Fruit | Color | Flavor |\n\n"
 }

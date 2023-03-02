@@ -1,0 +1,10 @@
+{
+  "prompt": "",
+  "formatter": "Text:{text}\nLabel:",
+  "task": "scoring",
+  "kernel_config": {
+    "model_name": "facebook/opt-350m",
+    "platform": "huggingface",
+    "max_tokens": 5
+  }
+}

@@ -121,7 +121,7 @@ class NaturalInstructionPromptware(Promptware):
             self.config_name: DatasetConfig(
                 dataset_name=dataset_name,
                 sub_dataset=self.config_name,
-                split="test",
+                split_name="test",
                 n_samples=3,
             )
         }
@@ -135,7 +135,7 @@ class NaturalInstructionPromptware(Promptware):
         dataset = load_dataset(
             dataset_config.dataset_name,
             dataset_config.sub_dataset,
-            split=dataset_config.split,
+            split=dataset_config.split_name,
         )
         dataset = recover_labels(dataset.select(range(dataset_config.n_samples)))
 

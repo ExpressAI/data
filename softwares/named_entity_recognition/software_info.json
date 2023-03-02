@@ -5,14 +5,20 @@
     "reference": "",
     "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
     "license": "apache-2.0",
-    "task": "named-entity-recognition",
-    "research_tasks": null,
-    "application_categories": null,
-    "application_subcategories": null,
-    "original_platform": null,
-    "design_pattern": null,
-    "source_language": null,
-    "target_language": null,
+    "task": null,
+    "research_tasks": [
+        "named-entity-recognition"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "extraction"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
     "module_name": "named_entity_recognition_promptware",
     "config_name": "default",
     "kernel_configs": {
@@ -32,7 +38,7 @@
         }
     },
     "software_configs": {
-        "sentiment_classification": {
+        "named-entity-recognition": {
             "name": "named-entity-recognition",
             "description": "This promptware is used to extract entities in the text",
             "instruction": "",

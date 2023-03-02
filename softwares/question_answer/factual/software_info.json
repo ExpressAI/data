@@ -1,0 +1,70 @@
+{
+    "description": "Answer questions based on existing knowledge.",
+    "creator": "OpenAI",
+    "homepage": "https://beta.openai.com/examples/",
+    "reference": "",
+    "codebase_url": "https://beta.openai.com/examples/",
+    "license": "no-license",
+    "task": null,
+    "research_tasks": [
+        "qa-open-domain"
+    ],
+    "application_categories": [
+        "conversation"
+    ],
+    "application_subcategories": [
+        "question-answering"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "en",
+    "module_name": "question_answer_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai4": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 60,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        " question_answer_factual": {
+            "name": "question_answer_factual",
+            "description": "Guide the model towards factual answering by showing it how to respond to questions that fall outside its knowledge base. Using a '?' to indicate a response to words and phrases that it doesn't know provides a natural response that seems to work better than more abstract replies.",
+            "instruction": "",
+            "demonstration": [
+                "Q: Who is Batman?\nA: Batman is a fictional comic book character.",
+                "Q: What is torsalplexity?\nA: ?",
+                "Q: What is Devz9?\nA: ?",
+                "Q: Who is George Lucas?\nA: George Lucas is American film director and producer famous for creating Star Wars.",
+                "Q: What is the capital of California?\nA: Sacramento.",
+                "Q: What orbits the Earth?\nA: The Moon.",
+                "Q: Who is Fred Rickerson?\nA: ?",
+                "Q: What is an atom?\nA: An atom is a tiny particle that makes up everything.",
+                "Q: Who is Alvan Muntz?\nA: ?",
+                "Q: What is Kozar-09?\nA: ?:",
+                "Q: How many moons does Mars have?\nA: Two, Phobos and Deimos."
+            ],
+            "prompt_template": "lambda input: f\"Q: {input['question']}\\nA:\",",
+            "task": "qa-open-domain"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "question": "Where is the Valley of Kings?"
+        },
+        "output": "The Valley of Kings is located in Egypt."
+    },
+    "example_prompt": "Q: Who is Batman?\nA: Batman is a fictional comic book character.\nQ: What is torsalplexity?\nA: ?\nQ: What is Devz9?\nA: ?\nQ: Who is George Lucas?\nA: George Lucas is American film director and producer famous for creating Star Wars.\nQ: What is the capital of California?\nA: Sacramento.\nQ: What orbits the Earth?\nA: The Moon.\nQ: Who is Fred Rickerson?\nA: ?\nQ: What is an atom?\nA: An atom is a tiny particle that makes up everything.\nQ: Who is Alvan Muntz?\nA: ?\nQ: What is Kozar-09?\nA: ?:\nQ: How many moons does Mars have?\nA: Two, Phobos and Deimos.\nQ: Where is the Valley of Kings?\nA:\n"
+}

@@ -1,0 +1,64 @@
+{
+    "description": "Machine translation from English to Chinese.",
+    "creator": "Promptware Authors",
+    "homepage": "https://github.com/expressai/promptware",
+    "reference": "",
+    "codebase_url": "https://github.com/expressai/promptware/tree/main/softwares",
+    "license": "apache-2.0",
+    "task": null,
+    "research_tasks": [
+        "machine-translation"
+    ],
+    "application_categories": [
+        "transformation"
+    ],
+    "application_subcategories": [
+        "translation"
+    ],
+    "original_platform": "gpt3",
+    "design_pattern": "standalone",
+    "source_language": "en",
+    "target_language": "zh",
+    "module_name": "machine_translation_promptware",
+    "config_name": "default",
+    "kernel_configs": {
+        "openai": {
+            "platform": "openai",
+            "model_name": "text-curie-001",
+            "max_tokens": 64,
+            "temperature": 0,
+            "top_p": 1,
+            "suffix": "",
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "logprobs": 1,
+            "n": 1,
+            "echo": false,
+            "stop": null
+        }
+    },
+    "software_configs": {
+        "machine_translation_enzh": {
+            "name": "machine_translation_enzh",
+            "description": "Machine translation from English to Chinese.",
+            "instruction": "Translate this into Chinese:",
+            "demonstration": [
+                "He knew how to manipulate the media. He knew exactly how to get the front page, Fiddes, who was Jackson's bodyguard for 10 years, said. \"90 per cent of the time it worked, by putting a mask on his face, or sticky tape on his hands - or tape on his nose was a favourite one. He would say he wanted his life to be the greatest mystery on Earth.\n\u4ed6\u77e5\u9053\u5982\u4f55\u64cd\u7eb5\u5a92\u4f53\u3002\u4ed6\u5b8c\u5168\u77e5\u9053\u5982\u4f55\u767b\u4e0a\u5934\u6761\u65b0\u95fb\uff0c\u505a\u4e86\u6770\u514b\u900a 10 \u5e74\u4fdd\u9556\u7684\u83f2\u5fb7\u65af\u8bf4\u9053\u3002\u8138\u4e0a\u6234\u4e0a\u53e3\u7f69\uff0c\u6216\u8005\u7528\u80f6\u5e26\u7c98\u5728\u624b\u4e0a\uff0c\u6216\u8005\u7528\u80f6\u5e26\u7c98\u5728\u9f3b\u5b50\u4e0a\uff08\u8fd9\u4e2a\u4ed6\u6700\u559c\u6b22\u505a\uff09\uff0c\u5728 90% \u7684\u60c5\u51b5\u4e0b\uff0c\u8fd9\u79cd\u65b9\u6cd5\u5f88\u594f\u6548\u3002\u4ed6\u4f1a\u8bf4\uff0c\u4ed6\u5e0c\u671b\u81ea\u5df1\u7684\u4e00\u751f\u6210\u4e3a\u5168\u7403\u6700\u5927\u7684\u8c1c\u3002\u201d\n",
+                "The country is also developing historic sites such as the  centuries-old Mada'in Saleh, home to sandstone tombs of the same civilisation which built the Jordanian city of Petra.\n\u8be5\u56fd\u8fd8\u6b63\u5728\u5f00\u53d1\u5386\u53f2\u9057\u8ff9\uff0c\u5982\u6709\u7740\u6570\u767e\u5e74\u5386\u53f2\u7684\u739b\u7538\u6c99\u52d2\uff0c\u8fd9\u91cc\u662f\u4e0e\u5efa\u9020\u7ea6\u65e6\u4f69\u7279\u62c9\u57ce\u7684\u540c\u4e00\u6587\u660e\u9057\u7559\u4e0b\u6765\u7684\u7802\u5ca9\u9675\u5893\u6240\u5728\u5730\u3002\n"
+            ],
+            "prompt_template": "lambda input: f\"{input['translation']['en']}\",",
+            "task": "machine-translation"
+        }
+    },
+    "dataset_configs": null,
+    "example": {
+        "input": {
+            "translation": {
+                "en": "Matt Fiddes, now a property developer and owner of a martial arts/dance chain, told Metro that Jackson believed the fascination around his persona would stop if he ceased to be a \"mystery\" in the public eye.",
+                "zh": "\u73b0\u4e3a\u623f\u5730\u4ea7\u5f00\u53d1\u5546\u517c\u6b66\u672f/\u821e\u8e48\u8fde\u9501\u5e97\u6240\u6709\u8005\u7684\u9a6c\u7279\u00b7\u83f2\u5fb7\u65af\u5411\u300a\u5927\u90fd\u5e02\u62a5\u300b\u7206\u6599\u79f0\uff0c\u6770\u514b\u900a\u8ba4\u4e3a\uff0c\u5982\u679c\u4ed6\u4e0d\u518d\u662f\u516c\u4f17\u773c\u4e2d\u7684\u201c\u8c1c\u201d\uff0c\u5bf9\u4ed6\u4e2a\u4eba\u7684\u8ff7\u604b\u5c31\u4f1a\u621b\u7136\u800c\u6b62\u3002\n"
+            }
+        },
+        "output": "\u73b0\u5728\u7684 Matt Fiddes\uff0c\u4e00\u540d\u5546\u4e1a\u5f00\u53d1\u5546\u548c\u62e5\u6709\u6b66\u672f/\u821e\u8e48\u96c6\u56e2\u7684\u4e3b\u4eba\uff0c\u544a\u8bc9Metro"
+    },
+    "example_prompt": "Translate this into Chinese:\nHe knew how to manipulate the media. He knew exactly how to get the front page, Fiddes, who was Jackson's bodyguard for 10 years, said. \"90 per cent of the time it worked, by putting a mask on his face, or sticky tape on his hands - or tape on his nose was a favourite one. He would say he wanted his life to be the greatest mystery on Earth.\n\u4ed6\u77e5\u9053\u5982\u4f55\u64cd\u7eb5\u5a92\u4f53\u3002\u4ed6\u5b8c\u5168\u77e5\u9053\u5982\u4f55\u767b\u4e0a\u5934\u6761\u65b0\u95fb\uff0c\u505a\u4e86\u6770\u514b\u900a 10 \u5e74\u4fdd\u9556\u7684\u83f2\u5fb7\u65af\u8bf4\u9053\u3002\u8138\u4e0a\u6234\u4e0a\u53e3\u7f69\uff0c\u6216\u8005\u7528\u80f6\u5e26\u7c98\u5728\u624b\u4e0a\uff0c\u6216\u8005\u7528\u80f6\u5e26\u7c98\u5728\u9f3b\u5b50\u4e0a\uff08\u8fd9\u4e2a\u4ed6\u6700\u559c\u6b22\u505a\uff09\uff0c\u5728 90% \u7684\u60c5\u51b5\u4e0b\uff0c\u8fd9\u79cd\u65b9\u6cd5\u5f88\u594f\u6548\u3002\u4ed6\u4f1a\u8bf4\uff0c\u4ed6\u5e0c\u671b\u81ea\u5df1\u7684\u4e00\u751f\u6210\u4e3a\u5168\u7403\u6700\u5927\u7684\u8c1c\u3002\u201d\n\nThe country is also developing historic sites such as the  centuries-old Mada'in Saleh, home to sandstone tombs of the same civilisation which built the Jordanian city of Petra.\n\u8be5\u56fd\u8fd8\u6b63\u5728\u5f00\u53d1\u5386\u53f2\u9057\u8ff9\uff0c\u5982\u6709\u7740\u6570\u767e\u5e74\u5386\u53f2\u7684\u739b\u7538\u6c99\u52d2\uff0c\u8fd9\u91cc\u662f\u4e0e\u5efa\u9020\u7ea6\u65e6\u4f69\u7279\u62c9\u57ce\u7684\u540c\u4e00\u6587\u660e\u9057\u7559\u4e0b\u6765\u7684\u7802\u5ca9\u9675\u5893\u6240\u5728\u5730\u3002\n\nMatt Fiddes, now a property developer and owner of a martial arts/dance chain, told Metro that Jackson believed the fascination around his persona would stop if he ceased to be a \"mystery\" in the public eye.\n"
+}

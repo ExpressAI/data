@@ -67,7 +67,7 @@ class SentimentClassifierPromptware(Promptware):
             "sst2": DatasetConfig(
                 dataset_name="sst2",
                 sub_dataset=None,
-                split="test",
+                split_name="test",
                 n_samples=10,
             )
         }
@@ -84,7 +84,7 @@ class SentimentClassifierPromptware(Promptware):
         dataset = load_dataset(
             dataset_config.dataset_name,
             dataset_config.sub_dataset,
-            split=dataset_config.split,
+            split=dataset_config.split_name,
         )
         dataset = recover_labels(dataset.select(range(dataset_config.n_samples)))
 
