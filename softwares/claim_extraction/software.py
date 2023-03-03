@@ -22,11 +22,10 @@ INSTRUCTION = "Extract all facts with the following criterion:"
 categories = [
     "the fact can be easily verified by the world knowledge",
     "each fact expresses simple information and contains less than 15 words",
+    "each fact starts with the symbol '-'",
 ]
 
 PROMPT = INSTRUCTION + "\n" + "\n".join([f"- {c}" for c in categories])
-
-print(PROMPT)
 
 
 class ClaimExtractionPromptware(Promptware):
@@ -90,4 +89,4 @@ class ClaimExtractionPromptware(Promptware):
 
         result = self.normalize_output(output)
 
-        return result
+        return "|||".join([claim for claim in result.split("\n")])
