@@ -24,15 +24,16 @@ from promptware.promptware import PromptConfig, Promptware
 
 
 PROMPT = """
-You're given a question or an instruction from a user and two responses; Please evaluate the quality of the responses based on the following criteria and explain which one is better. 
-Start with "Response 1", "Response 2" or "Neither":
-Relevance: Check whether the response directly addresses the question or topic at hand. It should provide pertinent information and stay on track, without deviating from the subject matter.
-Coherence: Assess the flow and organization of the response. The ideas should be connected logically and should make sense within the context of the question or discussion.
-Accuracy: Verify the factual correctness of the information provided. Cross-check with reliable sources to ensure that the AI has not produced misleading or outdated information.
-Completeness: Determine if the response provides a comprehensive answer to the question or topic, covering all relevant aspects and details.
-Clarity: Evaluate the response for simplicity and understandability. The language should be clear and concise, avoiding any unnecessary jargon or complexity.
-Grammar and Syntax: Examine the response for proper grammar, punctuation, and syntax. The response should be well-written and free of errors.
-Appropriateness: Assess the tone and language used in the response. The AI should maintain a neutral and respectful tone, avoiding any offensive or inappropriate content.
+You're given a question or an instruction from a user and two responses; Please evaluate the quality of the responses based on the following criteria to see which one is better and explain in detail. 
+Start with "Response 1", "Response 2":
+
+- Relevance: Check whether the response directly addresses the question or topic at hand. It should provide pertinent information and stay on track, without deviating from the subject matter.
+- Coherence: Assess the flow and organization of the response. The ideas should be connected logically and should make sense within the context of the question or discussion.
+- Accuracy: Verify the factual correctness of the information provided. Cross-check with reliable sources to ensure that the AI has not produced misleading or outdated information.
+- Completeness: Determine if the response provides a comprehensive answer to the question or topic, covering all relevant aspects and details.
+- Clarity: Evaluate the response for simplicity and understandability. The language should be clear and concise, avoiding any unnecessary jargon or complexity.
+- Grammar and Syntax: Examine the response for proper grammar, punctuation, and syntax. The response should be well-written and free of errors.
+- Appropriateness: Assess the tone and language used in the response. The AI should maintain a neutral and respectful tone, avoiding any offensive or inappropriate content.
 """
 
 print(PROMPT)
@@ -97,6 +98,6 @@ class InstructionTaskPromptware(Promptware):
         )
         output = completion["choices"][0]["message"]["content"]
 
-        result = self.postprocess(self.normalize_output(output))
+        result = self.normalize_output(output)
 
         return result
